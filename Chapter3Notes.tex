@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{courier}
+
+\title{Penn CIS 5210 - Chapter 3}
+\author{Jonathon Delemos - Dr. Chris Callison Burch}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+This course investigates algorithms to implement resource-limited knowledge-based agents which
+sense and act in the world. Topics include, search, machine learning, probabilistic reasoning, natural
+language processing, knowledge representation and logic. After a brief introduction to the language,
+programming assignments will be in Python.
+— Description of CIS 4210/5210 in course catalog
+
+\section{Chapter Three: Solving Problems by Searching}
+\subsection{3.1 - Problem-Sovling Agents}
+\begin{quote}
+    \texttt{\textbf{Problem-Solving Agent} is when the correct action to take is not offered by the greedy solution. \textbf{Searching} is now required.
+        \\ Problem-Solving Agents use \textbf{atomic} representation. This means that A leads to B. \textbf{Planning agents} use factored or structured representation. A factored representation splits
+        all the variables up in values. Think of this like an array of information. Two different factored reprensations might share certain elements, but be different vectors. More on that in chapter 2.
+        \\ Let's briefly recap structured representation.\\ \textbf{Structured reprensation} is a bit like a relational database for storing data that interacts with each other.
+        \\ \textbf{Consequantiliasm} is the idea that the agent flows through a series of states. The sequence of states is determined to be desirable or not based off the \textbf{performance measure.}
+        \\}
+\end{quote}
+\subsection{2.2/2.3 - Good Behavior and Nature of Environments}
+\begin{quote}
+    \texttt{\textbf{PEAS} - Performance, Environments, Acuators, Sensors. The word \textbf{stochastic} is used interchangeably with nondeterministic. A model is stochastic
+        if it explicitly deals with probability. It's nondeterministic if the probabilites aren't included. I.e. "there's a chance it may rain tomorrow.}
+\end{quote}
+\subsection{2.4 - The Structure of Agents}
+\begin{quote}
+    \textbf{Agent Architecture} – Agent = Architecture + Program. Architecture is the hardware. Program is the agent program. Agent programs will likely not keep an active history of all tabled actions. This would result in exponential growth due to the Fundamental Counting Principle:
+    \[
+        \sum_{t=1}^{T} |P|^t
+    \]
+\end{quote}
+\end{document}
+

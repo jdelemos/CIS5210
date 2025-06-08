@@ -20,8 +20,30 @@ programming assignments will be in Python.
 \section{Chapter Two: Intelligent Agents}
 \subsection{2.1 - Agents and Environments}
 \begin{quote}
-    \texttt{\textbf{Agent} is anything that can be viewed as perceiving its environment through sensors and acting upon the environment through \textbf{actuators}.
-        \\ Agent behavior is mapped through a Mathematical function called \textbf{agent functions.} Internally, we look at the agent function as a \textbf{agent program.}
-        \\The example in the book they use is vaccuum world. \\ \textbf{Rational Agent} is a mechanical agent that does the right thing at the right time.}
+    \textbf{Agent} is anything that can be viewed as perceiving its environment through sensors and acting upon the environment through \textbf{actuators}.
+    Agent behavior is mapped through a Mathematical function called \textbf{agent functions.} Internally, we look at the agent function as a \textbf{agent program.}
+    The example in the book they use is vaccuum world. \\ \textbf{Rational Agent} is a mechanical agent that does the right thing at the right time.
+    \textbf{Consequantiliasm} is the idea that the agent flows through a series of states. The sequence of states is determined to be desirable or not based off the \textbf{performance measure.}
+
+\end{quote}
+\subsection{2.2/2.3 - Good Behavior and Nature of Environments}
+\begin{quote}
+    \textbf{PEAS} - Performance, Environments, Acuators, Sensors. The word \textbf{stochastic} is used interchangeably with nondeterministic. A model is stochastic
+    if it explicitly deals with probability. It's nondeterministic if the probabilites aren't included. I.e. "there's a chance it may rain tomorrow.
+\end{quote}
+\subsection{2.4 - The Structure of Agents}
+\begin{quote}
+    \textbf{Agent Architecture} – Agent = Architecture + Program. Architecture is the hardware. Program is the agent program. Agent programs will likely not keep an active history of all tabled actions. This would result in exponential growth due to the Fundamental Counting Principle:
+    \[
+        \sum_{t=1}^{T} |P|^t
+    \]
+    When it comes to defining the learning agent, the most important distinction is between the \textbf{learning element}, which is responsible for making improvements, and the \textbf{performance element}.
+    \textbf{Utility} is the term we use to describe the measured success of an agent. \textbf{Critic} is the part of the AI model which focuses on how an agent is doing, also providing feedback.
+    \textbf{Problem Generator} is responsible for suggesting actions that could lead to learning. Some of these actions are initially suboptimal. These four components make up the learning agent.
+\end{quote}
+\subsection{2.4.7 - How the components of the agent work}
+\begin{quote}
+    \textbf{Atomic Representation} is looked at like a black box. A -> B, and it has no internal structure. Think of it like a circuit from A -> B. It's a road you cannot deviate from.
+    \textbf{Factored representation} splits up each state into a fixed state of variables of attributes. Think of it like an array instead of a variables (Atomic).
 \end{quote}
 \end{document}
