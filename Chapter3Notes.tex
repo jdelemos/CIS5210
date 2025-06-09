@@ -2,7 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{courier}
 
-\title{Penn CIS 5210 - Chapter 3}
+
+\title{Penn CIS 5210- AI: A Modern Approach - Chapter 3}
 \author{Jonathon Delemos - Dr. Chris Callison Burch}
 \date{\today}
 
@@ -17,26 +18,64 @@ programming assignments will be in Python.
 — Description of CIS 4210/5210 in course catalog
 
 \section{Chapter Three: Solving Problems by Searching}
-\subsection{3.1 - Problem-Sovling Agents}
+\subsection{3.0 introduction}
 \begin{quote}
-    \texttt{\textbf{Problem-Solving Agent} is when the correct action to take is not offered by the greedy solution. \textbf{Searching} is now required.
-        \\ Problem-Solving Agents use \textbf{atomic} representation. This means that A leads to B. \textbf{Planning agents} use factored or structured representation. A factored representation splits
-        all the variables up in values. Think of this like an array of information. Two different factored reprensations might share certain elements, but be different vectors. More on that in chapter 2.
-        \\ Let's briefly recap structured representation.\\ \textbf{Structured reprensation} is a bit like a relational database for storing data that interacts with each other.
-        \\ \textbf{Consequantiliasm} is the idea that the agent flows through a series of states. The sequence of states is determined to be desirable or not based off the \textbf{performance measure.}
-        \\}
+    \textbf{Problem-Solving Agent} is when the correct action to take is not offered by the greedy solution. \textbf{Searching} is now required.
+    \\ Problem-Solving Agents use \textbf{atomic} representation. This means that A leads to B. \textbf{Planning agents} use factored or structured representation. A factored representation splits
+    all the variables up in values. Think of this like an array of information. Two different factored reprensations might share certain elements, but be different vectors. More on that in chapter 2.
+    \\ Let's briefly recap structured representation.\\ \textbf{Structured reprensation} is a bit like a relational database for storing data that interacts with each other.
+    \\ \textbf{Consequantiliasm} is the idea that the agent flows through a series of states. The sequence of states is determined to be desirable based off the \textbf{performance measure.}
 \end{quote}
-\subsection{2.2/2.3 - Good Behavior and Nature of Environments}
+\subsection{3.1 - Problem-Solving Agents}
 \begin{quote}
-    \texttt{\textbf{PEAS} - Performance, Environments, Acuators, Sensors. The word \textbf{stochastic} is used interchangeably with nondeterministic. A model is stochastic
-        if it explicitly deals with probability. It's nondeterministic if the probabilites aren't included. I.e. "there's a chance it may rain tomorrow.}
+    \textbf{Unknown} - In an unknown environment, the agent is forced engage in random behavior. \textbf{Goals} are very important to the agent. Clearly defined goals moreso. In the book, the author describes travelling through Romania, specifically from arad to bucharest.
+    Before taking any actions, the agent uses a \textbf{search} tree to find a solution. When a solution is found, the agent can ignore it's percepts and engage in the execution. This is called an \textbf{open-loop} system. Example might be
+    driving from A -> B -> C. You don't really need to look at the map again. If there is a chance the road conditions may change, you might want to use a \textbf{closed-loop system}. This is more non-deterministic. The strategy could change depending on which precepts arrive.
 \end{quote}
-\subsection{2.4 - The Structure of Agents}
+\subsection{3.2 - Search problems and solutions}
 \begin{quote}
-    \textbf{Agent Architecture} – Agent = Architecture + Program. Architecture is the hardware. Program is the agent program. Agent programs will likely not keep an active history of all tabled actions. This would result in exponential growth due to the Fundamental Counting Principle:
-    \[
-        \sum_{t=1}^{T} |P|^t
-    \]
+    \textbf{Search problem} can be formally defined as follows:
+    \begin{itemize}
+        \item States the environment can be in.
+        \item Initial State the agent starts in.
+        \item Goal states. There are can alternative states, sometimes the goal is defined by a property that applies to many states. If I write "goal", that could mean a variety of goal states.
+        \item Actions available to the agents. ACTIONS(Arad) = (toSibiu,ToTimisoara,ToZerind)
+        \item Transition Model. RESULT(Arad,ToZerind) = ToZerind
+        \item Action Cost Function ACTIONCOST(Arad, Zerind, 3) where c(s,a,s') and s' is the cost of doing s->a.
+    \end{itemize}
+    \textbf{Touring Problems} are search problems. You can already see how they might need the states previously described. An example might be the \textbf{Travelling Salesman} problem. Examples of other solving problems through searching include VLSI layout,
+    robot navigation, automatic assembly sequencing, and protein design.
+\end{quote}
+\subsection{3.3 - Search Algorithms}
+\begin{quote}
+    \textbf{Search Algorithm} takes a search problem as an input and returns a solution. Throughout this chapter, we investigate \textbf{search trees} over state space graph,
+    forming various paths from the initial state, trying to find a path that reaches a goal state. The \textbf{state space} describes set of states in the world, and the actions that allow
+    transitions from one to another. The \textbf{search tree} describes paths between these states, reaching towards the goal. \textbf{Child nodes} are nodes in a search that were generated from the
+    parent node.
+
+    \begin{quote}
+        \textbf{DECLARATIONS} \\
+        \textbf{function} \texttt{Best-First-Search(problem, f)} \textbf{returns} a solution node or failure
+        \\\textbf{Node} (State = problem, initial)
+        \\ \textbf{frontier} (a priority queue ordered by f, with node as an element) \\ \textbf{reached} (a look-up table, one entry with key problem. INITIAL and value NODE)
+        \\ \\
+        \textbf{CODE}
+        \textbf{while not} IS-EMPTY (frontier) do \\
+        \hspace*{1em} \textbf{if} frontier is empty \textbf{then return} failure \\
+        \hspace*{1em} node $\gets$ remove the best node from frontier \\
+        \hspace*{1em} \textbf{if} node contains a goal state \textbf{then return} node \\
+        \hspace*{1em} frontier $\gets$ add all successors of node to frontier
+    \end{quote}
+    That's a rough algorithm for best-first search. But let's figure out how to structure these. I want to try to construct one like I might construct a deterministic finite automata. Listed below is the
+    structure of the search data. \\
+    \\ \textbf{Search Data Structures}:
+    \begin{itemize}
+        \item node.State: the state to which the node corresponds
+        \item node.Parent: the node in the tree that generated this node;
+        \item node.Action: the action that was applied to the parents state to generate this node;
+        \item node.PathCost: the total cost of the path from the initial state to this node. In math, we use g(node) as a synonym for the Path-Cost.
+    \end{itemize}
+    The frontier is typically stored in a queue. Three kinds of queues are typically used in search algorithms, priority, LIFO, FIFO. If a search tree has a loop or cycle, it is considered infinite.
 \end{quote}
 \end{document}
 
