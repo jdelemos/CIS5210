@@ -1,7 +1,9 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{courier}
-
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 
 \title{Penn CIS 5210- AI: A Modern Approach - Chapter 3}
 \author{Jonathon Delemos - Dr. Chris Callison Burch}
@@ -53,19 +55,68 @@ programming assignments will be in Python.
     transitions from one to another. The \textbf{search tree} describes paths between these states, reaching towards the goal. \textbf{Child nodes} are nodes in a search that were generated from the
     parent node.
 
-    \begin{quote}
-        \textbf{DECLARATIONS} \\
-        \textbf{function} \texttt{Best-First-Search(problem, f)} \textbf{returns} a solution node or failure
-        \\\textbf{Node} (State = problem, initial)
-        \\ \textbf{frontier} (a priority queue ordered by f, with node as an element) \\ \textbf{reached} (a look-up table, one entry with key problem. INITIAL and value NODE)
-        \\ \\
-        \textbf{CODE}
-        \textbf{while not} IS-EMPTY (frontier) do \\
-        \hspace*{1em} \textbf{if} frontier is empty \textbf{then return} failure \\
-        \hspace*{1em} node $\gets$ remove the best node from frontier \\
-        \hspace*{1em} \textbf{if} node contains a goal state \textbf{then return} node \\
-        \hspace*{1em} frontier $\gets$ add all successors of node to frontier
-    \end{quote}
+    \begin{algorithm}
+        \caption{Best-First Search - Pseudo}
+        \begin{algorithmic}[1]
+            \Function{BestFirstSearch}{problem, $f$}
+            \State $node \gets \text{Node}(problem.initial\_state)$
+            \State $frontier \gets$ priority queue ordered by $f(node)$
+            \State insert $node$ into $frontier$
+            \State $explored \gets \emptyset$
+            \While{$frontier$ is not empty}
+            \State $node \gets frontier.pop()$
+            \If{$problem.goal\_test(node.state)$}
+            \State \Return $solution(node)$
+            \EndIf
+            \State $explored \gets explored \cup \{node.state\}$
+            \ForAll{$action \in problem.actions(node.state)$}
+            \State $child \gets child\_node(problem, node, action)$
+            \If{$child.state \notin explored$ and $child \notin frontier$}
+            \State insert $child$ into $frontier$
+            \ElsIf{$child$ is in $frontier$ with higher $f$-value}
+            \State replace that node with $child$ in $frontier$
+            \EndIf
+            \EndFor
+            \EndWhile
+            \State \Return failure
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
+    \begin{algorithm}
+        \caption{Best-First Search - Python}
+        \begin{algorithmic}[1]
+            \renewcommand{\algorithmicdo}{}
+            \renewcommand{\algorithmicthen}{}
+            \Function{BestFirstSearch}{problem, $h$}
+            \State \hspace{1em} \texttt{\# Create the initial node from the start state}
+            \State $node = \text{Node}(problem.initial.state, none, none, 0)$
+            \State $frontier = \text{[]}$
+            \State \hspace{1em} \texttt{\# Here we are assigning the frontier to a heap which behaves like pq}
+            \State $heapq.heappush = \text(frontier, (h(node.state), node))$
+            \State $visited = \text(set())$
+            \\
+            \State \hspace{1em} \texttt{\# Time to start the loop}
+            \While{$frontier$:}
+            \State $node = heapq.heappop(frontier)$
+            \If{$problem.goal_state(node.state):}$
+                \State \Return $solution(node)$
+                \EndIf
+                \State $reached.add(node.State)$
+                \For{ $action$ in problem.actions(node.State)}
+                \State $child$ = child.node(problem, node, action)
+                \If{$child$ not in visited:}
+                \State $heapq$.heappush(frontier, (h(child.state), child))
+            \EndIf
+            \State \Return None
+            \EndFor
+
+            \EndWhile
+
+            \EndFunction
+        \end{algorithmic}
+    \end{algorithm}
+
     That's a rough algorithm for best-first search. But let's figure out how to structure these. I want to try to construct one like I might construct a deterministic finite automata. Listed below is the
     structure of the search data. \\
     \\ \textbf{Search Data Structures}:
@@ -75,7 +126,18 @@ programming assignments will be in Python.
         \item node.Action: the action that was applied to the parents state to generate this node;
         \item node.PathCost: the total cost of the path from the initial state to this node. In math, we use g(node) as a synonym for the Path-Cost.
     \end{itemize}
-    The frontier is typically stored in a queue. Three kinds of queues are typically used in search algorithms, priority, LIFO, FIFO. If a search tree has a loop or cycle, it is considered infinite.
+    The frontier is typically stored in a queue. Three kinds of queues are typically used in search algorithms, priority, LIFO, FIFO. If a search tree has a loop or cycle, it is considered infinite. We call
+    a search algorithm a \textbf{graph search} if it checks for redundant paths. Imagine a small grid where all locations fit in memory. An algorithm that doesn't
+    check for redundant paths is a \textbf{tree-like-search}. Finally, we can define a \textbf{redundant} path as a worse way to accomplish the same objective. Example: two paths reach the
+    final state and one is faster. The second path is redundant. Best-first search is a graph search algorithm: it will remove all references to reached we get a tree-like search that uses less memory but will
+    examine redundant paths to the same state. This is slower.
+    \\ When creating a measure for problem solving performance, we consider: \\
+    \begin{itemize}
+        \item \textbf{Completeness} : Is the algorithm guaranteed to find a solution.
+        \item  \textbf{Cost Optimality} : does it find a solution with the lowest path cost of all solutions?
+        \item \textbf{Time Complexity} : How long does it take to find a solution?
+        \item  \textbf{Space Complexity} : How much memory is needed?
+    \end{itemize}
 \end{quote}
 \end{document}
 
