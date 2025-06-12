@@ -4,6 +4,11 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+
 
 \title{Penn CIS 5210- AI: A Modern Approach - Chapter 3}
 \author{Jonathon Delemos - Dr. Chris Callison Burch}
@@ -138,6 +143,77 @@ programming assignments will be in Python.
         \item \textbf{Time Complexity} : How long does it take to find a solution?
         \item  \textbf{Space Complexity} : How much memory is needed?
     \end{itemize}
+    Finally, we are going to analyze all the
 \end{quote}
+\subsection{3.4 - Uninformed Search Strategies}
+\begin{quote}
+    \textbf{BFS} when all actions have the same cost. Uses FIFO queue. Uses \textbf{early goal strategy} that tests whether a node is the goal on every iteration.
+    \\ \textbf{Djikstra's Algorithm} - This is when actions have different costs. It looks a lot like BFS in evaluation, but it's a tad bit more complex. At each turn it computes the cost of travel
+    plus the cost of the next node; it's really quite brilliant. In comparison, DFS doesn't consider cost. It returns the first solution found. For reference, b is the branching factor and m is the memory.
+    To keep DFS from wandering infinitely, we can use a DEPTH-LIMITED search. This is where we only traverse until a certain depth has been met.
+    \\Finally, we are going to compare the various algorithms and their relevant attributes.
+    \begin{table}[H]
+        \centering
+        \caption{Comparison of Uninformed Search Strategies}
+        \begin{tabular}{@{}lcccc@{}}
+            \toprule
+            \textbf{Search Algorithm} & \textbf{Complete?}            & \textbf{Optimal?}          & \textbf{Time Complexity}                & \textbf{Space Complexity}               \\
+            \midrule
+            Breadth-First Search      & Yes (if $b$ is finite)        & Yes (if cost = 1 per step) & $O(b^d)$                                & $O(b^d)$                                \\
+            Uniform-Cost Search       & Yes (if cost $\geq \epsilon$) & Yes                        & $O(b^{1+\lfloor C^*/\epsilon \rfloor})$ & $O(b^{1+\lfloor C^*/\epsilon \rfloor})$ \\
+            Depth-First Search        & No                            & No                         & $O(b^m)$                                & $O(m)$                                  \\
+            Depth-Limited Search      & No (if $d_l < d$)             & No                         & $O(b^{d_l})$                            & $O(d_l)$                                \\
+            Iterative Deepening DFS   & Yes                           & Yes (if cost = 1 per step) & $O(b^d)$                                & $O(d)$                                  \\
+            Bidirectional Search      & Yes (if goal is reachable)    & Yes (if cost = 1 per step) & $O(b^{d/2})$                            & $O(b^{d/2})$                            \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{quote}
+\subsection{3.5 - Informed (Heuristic) Search Strategies}
+\begin{quote}
+    \textbf{Heuristics} is a word we use to describe a hint about the location of the goal. For example, distance from city to city might be used.
+    \\ \textbf{Greedy best-first} appears to work efficiently, but
+    it can get stuck in loops due to it's inability to calculate the cost of how far it's come already.
+    \begin{itemize}
+        \item Complete - only in finite spaces
+        \item Time Complexity - O (|V|) - V is the number of vertices, best case branch * memory.
+        \item Space Complexity - O (|V|) - V is the number of vertices, best case branch * memory.
+        \item Cost Optimal - sometimes - It can lead into loops.
+    \end{itemize}
+    \textbf{A*} is a very interesting algorithm. It keeps a running count of the distance travelled plus the distance to the target. If an agent gets caught in a loop, then it will eventually
+    escape because the distance travelled inside plus the distance spent getting there will eventually be less than a different option. Once that happens, it will select another option!
+    \begin{itemize}
+        \item Complete - Yes
+        \item Time Complexity - O (|V|) - V is the number of vertices, best case branch * memory.
+        \item Space Complexity - O (|V|) - V is the number of vertices, best case branch * memory.
+        \item Cost Optimal - Depends on the properties of the heuristics
+    \end{itemize}
+    \textbf{Admissibility} is a key factor, \textbf{admissable heuristics} is one that never over-estimates the goal. Therefore it is admissable in our analysis.
+    \\ - \\ \textbf{Triangle Inequality} states that \textit{h(n) < c(n, a, n') + h(n')}. In english, this means that the cost of n to goal is
+    less than or equal to the cost to go from n to n' + n' to the goal. This assumes n' is on the way there. Think of it like a gas station on the way to work.
+    The distance to work shouldn't be greater if you stop at the gas station, or else something is wrong. This is an important proof of consistent heuristics. They
+    will provide reliable metrics for success and are therefore safe to implement.
+    \\ \textbf{Search Contours} - this is a grouping of costs associated for movement in a specific area. Moving outside the area will always result in a cost increase.
+    However, f(n) = g(n) + h(n) might remain consistent as it tries a few routes that reach the same exceeded level. \textbf{Surely expanded nodes} these are nodes where f(n) - price to get to n
+    is less than *C, cost of total solution. A* is efficient because it prunes away search nodes that cannot find an optimal solution. For example, if you know one road leads toward and connects with the city,
+    and one road leads directly away/doesn't connect, you can prune the road that leads directly away. This is called \textbf{optimal efficiency.}
+    \\ -
+    \\ The downside of A* is that it expands a lot of nodes. If we want to optimize time and space but allow suboptimal solutions, we consider this to be a \textbf{satisficing} solution.
+    Applying the idea of a \textbf{detour index} is the idea that between two locations there is a straight line distance. Let's call it 10 miles. Due to streets available, the actual
+    travelling distance might be 13 miles. This means we have a detour index of 1.3. Interestingly, most locations have a detour index of 1.2-1.6.
+    \\This is where \textbf{weighted A* search} comes in. The evaluation function is \textit{f(n) = g(n) + W x h(n)} where W is a weighted heuristic value. The weighted heuristic value
+    could prevent us from exploring many states for instance. In general, if the cost of the solution is C*, then the weight A* cost would be somewhere between C* and \textit{W x C*}.
+    \\ \textbf{Unbounded and Bounded Searches}: finding the solution before \textit{X} resources or finding a solution regardless of the cost.
+    \\ -
+    \\ \textbf{Memory Bounded Search} - some algorithms allow for better utilization of available space. \textbf{Iterative-Deepening A* Search} helps us eliminate the need to cache all reached states.
+
+\end{quote}
+\subsection{Questions?}
+This chapter took me literally fucking forever.
+\\ Are we expected to memorize the code for these algorithms, or just understand what they do and what their limitations are?
+
+\subsection{Summary}
+In this chapter, we discusssed search algorithms that an agent can use to choose actions in a wide variety of environments. We covered uninformed searches: bfs, dfs, uniform cost search, bidirectional; informed searches: greedy best-first search, A* search, bi-directional A* search, IDA*, RBFS,
+and weighted searches.
 \end{document}
 
