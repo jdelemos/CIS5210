@@ -2,13 +2,15 @@
 # CIS 521: Homework 2
 ############################################################
 
-student_name = "Type your full name here."
+student_name = "Jonathon Michael Delemos"
 
 ############################################################
 # Imports
 ############################################################
 
 # Include your imports here, if any are used.
+import math
+import numpy as np
 
 ############################################################
 # Section 1: N-Queens
@@ -45,7 +47,30 @@ def n_queens_valid(board):
 
 
 def n_queens_solutions(n):
-    pass
+    results = []
+    queens_helper(0, [], set(), set(), set(), n, results)
+    #print(len(results))
+    return results
+
+
+def queens_helper(row, placement, cols, diags1, diags2, n, results):
+    # we have reached base case, this is where we have found all combinations at each row level
+    if row == n:
+        results.append(placement.copy())
+        return
+    for col in range(n):
+        if (col in cols) or ((row - col) in diags1) or ((row + col) in diags2):
+            continue
+        placement.append(col)
+        cols.add(col)
+        diags1.add(row - col)
+        diags2.add(row + col)
+        queens_helper(row + 1, placement, cols, diags1, diags2, n, results)
+        #this is where I got confused
+        placement.pop()
+        cols.remove(col)
+        diags1.remove(row - col)
+        diags2.remove(row + col)
 
 
 ############################################################
@@ -56,13 +81,36 @@ def n_queens_solutions(n):
 class LightsOutPuzzle(object):
 
     def __init__(self, board):
-        pass
+        self.board = board
+        self.rows = len(board)
+        self.cols = len(board[0])
 
     def get_board(self):
-        pass
+        return self.board
 
     def perform_move(self, row, col):
-        pass
+        #base case       
+        self.board[row][col] = not self.board[row][col]
+        #try lower
+        try:
+            self.board[row+1][col] = not self.board[row+1][col]
+        except: 
+            pass
+        #try right
+        try:
+            self.board[row][col+1] = not self.board[row][col+1] 
+        except: 
+            pass
+        #try up
+        try:
+            self.board[row-1][col] = not self.board[row-1][col]
+        except: 
+            pass
+        #try left
+        try:
+            self.board[row][col-1] = not self.board[row][col-1]
+        except: 
+            pass
 
     def scramble(self):
         pass
@@ -81,7 +129,8 @@ class LightsOutPuzzle(object):
 
 
 def create_puzzle(rows, cols):
-    pass
+    board = np.zeros((rows,cols), dtype = bool)
+    return LightsOutPuzzle(board)
 
 
 ############################################################

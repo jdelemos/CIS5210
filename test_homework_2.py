@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 
 def num_placements_all(n):
@@ -53,9 +54,82 @@ def queens_helper(row, placement, cols, diags1, diags2, n, results):
         diags1.add(row - col)
         diags2.add(row + col)
         queens_helper(row + 1, placement, cols, diags1, diags2, n, results)
+        #this is where I got confused
         cols.remove(col)
         diags1.remove(row - col)
         diags2.remove(row + col)
 
 
 n_queens_solutions(8)
+
+############################################################
+# Section 2: Lights Out
+############################################################
+
+
+class LightsOutPuzzle(object):
+
+    def __init__(self, board):
+        self.board = board
+        self.rows = len(board)
+        self.cols = len(board[0])
+
+    def get_board(self):
+        return self.board
+
+    def perform_move(self, row, col):
+        #base case       
+        self.board[row][col] = not self.board[row][col]
+        #try lower
+        try:
+            self.board[row+1][col] = not self.board[row+1][col]
+        except: 
+            pass
+        #try right
+        try:
+            self.board[row][col+1] = not self.board[row][col+1] 
+        except: 
+            pass
+        #try up
+        try:
+            self.board[row-1][col] = not self.board[row-1][col]
+        except: 
+            pass
+        #try left
+        try:
+            self.board[row][col-1] = not self.board[row][col-1]
+        except: 
+            pass
+
+
+
+    def scramble(self):
+        pass
+
+    def is_solved(self):
+        pass
+
+    def copy(self):
+        pass
+
+    def successors(self):
+        pass
+
+    def find_solution(self):
+        pass
+
+
+def create_puzzle(rows, cols):
+    board = np.zeros((rows,cols), dtype = bool)
+    return LightsOutPuzzle(board)
+
+
+p = create_puzzle(2,2)
+p.perform_move(1,1)
+print(p.get_board())
+
+p.perform_move(1,1)
+print(p.get_board())
+
+
+
