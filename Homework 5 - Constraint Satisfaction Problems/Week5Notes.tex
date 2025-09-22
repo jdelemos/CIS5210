@@ -1,0 +1,239 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{courier}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{float}
+
+\title{CIS5210 - Artificial Intelligence - Chapter 5 Notes}
+\author{Jonathon Delemos - Chris Callison Burch}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\subsection{Big Ideas - Representing Constraints}
+
+\textbf{Constraints} must be represented in uniform declarative language. The goal is to find solutions by 
+\textit{general purpose} search algorithms with no changes from problem to problem. It sounds a bit not P vs. NP.
+where we are treating all problems as P. Our mission is to specify the problem in a formal declarative lagnuage, and a general-purpose algorithm 
+does everything else.  
+
+\subsection{CSP - Rules}
+
+CSP - Consists of: 
+
+\begin{itemize}
+    \item \textbf{Elements:}:
+          \begin{itemize}
+              \item \texttt{(Finite set of variables)} matches values $x_1,x_2,..$
+              \item \texttt{Non-empty domain of possible values} Domain of possible labels: $D_i=v_1, v_2, v_3..$ 
+              \item \texttt{Finite set of constraints} A solution is found by finding a combination that doesn't violate the contraints. 
+          \end{itemize}
+
+    \item \textbf{Constraint Satisfaction Problems}:
+          \begin{itemize}
+              \item \texttt{Complete} when every variable is assigned to a value 
+              \item \texttt{Solution} only when the CSP is complete and consistent in assignment. 
+          \end{itemize}
+
+    \item \textbf{Negated Character Classes}:
+          \begin{itemize}
+              \item \texttt{/\^a/} matches any character except “a”
+          \end{itemize}
+
+    \item \textbf{Optional Characters (?)}:
+          \begin{itemize}
+              \item ? means the preceding character or nothing
+              \item \texttt{/woodchucks?/} matches “woodchuck” or “woodchucks”
+              \item \texttt{/colou?r/} matches “color” or “colour”
+          \end{itemize}
+
+    \item \textbf{Repetition (Kleene Star and Plus)}:
+          \begin{itemize}
+              \item \texttt{/a*/} matches zero or more “a” characters
+              \item \texttt{/aa*/} matches one or more “a” characters
+              \item \texttt{/[ab]*/} matches any string of a’s and b’s (including empty)
+              \item \texttt{/[0-9]+/} matches one or more digits (shorthand for integer)
+          \end{itemize}
+
+    \item \textbf{Wildcard (.)}:
+          \begin{itemize}
+              \item \texttt{/beg.n/} matches “begin”, “beg’n”, “begun”, etc.
+          \end{itemize}
+
+    \item \textbf{Anchors and Boundaries}:
+          \begin{itemize}
+              \item \texttt{\textbackslash{}B} matches non-word boundary
+          \end{itemize}
+    \item \textbf{Grouping and Precedence}
+          \begin{itemize}
+              \item \texttt{/cat|dog/} matches cat \textit{or} dog
+          \end{itemize}
+    \item \textbf{Special Characters}
+          \begin{itemize}
+              \item \texttt{*} — Zero or more occurrences of the preceding expression
+              \item \texttt{+} — One or more occurrences of the preceding expression
+              \item \texttt{?} — Zero or one occurrence (optional) of the preceding expression
+              \item \texttt{\{n\}} — Exactly \texttt{n} occurrences
+              \item \texttt{\{n,m\}} — Between \texttt{n} and \texttt{m} occurrences (inclusive)
+              \item \texttt{\{n,\}} — At least \texttt{n} occurrences
+              \item \texttt{\{,m\}} — Up to \texttt{m} occurrences
+          \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+So /a.{24}z/ will match
+a followed by 24 dots followed by z (but not a followed by 23 or 25 dots followed
+by a z).
+
+\subsection{2.1.6 - Substitution, Capture Groups, and Eliza}
+
+If we want to capture the first match and apply that elsewhere in a string, we can
+use a \textbf{capture group}.
+
+Example:
+
+The (.*)er there were, the /1er they will be.
+
+Here the 1 represents the string we first captured with the .* regular expression. This section is
+going to be a little confusing. Here we have: /(?:some|a few) (people|cats) like some 1/. This means we ignore the (some | a few)
+when capturing the expression and instead \textit{match} it. \textbf{Eliza works through substitutions}.
+
+\subsection{2.2 - Words}
+
+\textbf{Corpus} is a computer readable collection of text or speech. We can think of \textbf{types} as the vocabulary, and \textbf{instances} as the total number \textit{N} of running words.
+We can use \textbf{Herdan's Law}:
+
+\[
+    \mid V \mid = k \cdot N^\beta
+\]
+
+to calculate for the \textit{types} V. When creating a \textbf{datasheet}, it's important to consider these properties:
+
+\itemize
+\item Motivation
+\item Situation
+\item Language Variety
+\item Speaker Demographics
+\item Collection Process
+\item Annotation Process
+\item Distribution
+
+
+For example let’s begin with the ‘complete words’ of Shakespeare in one file,
+sh.txt. We can use tr to tokenize the words by changing every sequence of non-
+alphabetic characters to a newline (’A-Za-z’ means alphabetic and the -c option
+complements to non-alphabet, so together they mean to change every non-alphabetic
+character into a newline. The -s (‘squeeze’) option is used to replace the result
+of multiple consecutive changes into a single output, so a series of non-alphabetic
+characters in a row would all be ‘squeezed’ into a single newline):
+(tr -sc 'A-Za-z' 'n' (\textbackslash n) \textgreater  sh.txt) \newline
+
+This creates a \textbf{token-per-line} format! \newline
+\newline \textit{Shall I compare thee to a summer’s day?}
+
+\begin{itemize}
+    \item Shall
+    \item I
+    \item compare
+    \item thee
+    \item to
+    \item a
+    \item summer
+    \item s
+    \item day
+\end{itemize}
+
+Then we can pass them through a sort, uniq, and uppercase function. Uniq will count the number of uniq words, uppercase will send all words to uppercase,
+and sort will sort them based off frequency. With that information, sentiment analysis is practically done.
+
+\subsection{2.5 - Word and Subword Tokenization}
+
+\textbf{Tokeniztion} is the task of dividing running text into words. The \textbf{Byte Pair Encoding} token learner begins BPE
+with a vocabulary that is just the set of all individual characters. It then examines the
+training corpus, chooses the two symbols that are most frequently adjacent (say ‘A’,
+‘B’), adds a new merged symbol ‘AB’ to the vocabulary, and replaces every adjacent
+’A’ ’B’ in the corpus with the new ‘AB’. It continues to count and merge, creating
+new longer and longer character strings, until k merges have been done creating
+k novel tokens; k is thus a parameter of the algorithm. The resulting vocabulary
+consists of the original set of characters plus k new symbols
+
+Visual Example:
+\begin{itemize}
+    \item Input:  h e l l o   h e l p   h e l l
+    \item Step 1: Merge (h, e) → he
+    \item he l l o   he l p   he l l
+    \item Step 2: Merge (l, l) → ll
+    \item  he ll o   he l p   he ll
+    \item Step 3: Merge (he, ll) → hell
+    \item hell o   he l p   hell
+\end{itemize}
+
+\subsection{2.6 - Word Normalization, Lemmatization, Stemming }
+
+\textbf{Normalization} means mapping all input words into a readable form. Example: Sending all words to upper or lower case.
+\textbf{Lemmatization} is the task of determining that two words have the same root. The words am, are, is, have the same shared \textit{be}.
+Lemmatization is done through \textbf{morphological parsing}. Morphology is the study of the way words are build up from
+smaller meaning bearing units. This is broken down into \textbf{stems} and \textbf{affixes}. The basic
+concept behind this is simplifying conjugation down to it's base word.
+
+\subsection{Maximum Edit Distance}
+
+\textbf{Edit Distance} gives us a way to quantify the minor differences between two strings. Example: coreference and conference.
+The gap between \textit{intention} and \textit{execution} is 5: delete i, substitute e for n, substitute x for t, insert c, substitute u for n. \newline
+
+\textit{How do we find the minimum edit distance?} \newline
+
+The space of all possible edits is enormous, so we can’t search naively. We must use \textbf{dynamic programming}. Dynamic programming is an algorithmic technique used to solve complex problems by breaking them down into simpler, overlapping subproblems.
+
+D[i, j] as the edit distance between X[1..i] and Y [1.. j], i.e., the first i characters of X
+and the first j characters of Y . The edit distance between X and Y is thus D[n, m].
+We’ll use dynamic programming to compute D[n, m] bottom up, combining so-
+lutions to subproblems. In the base case, with a source substring of length i but an
+empty target string, going from i characters to 0 requires i deletes. With a target
+substring of length j but an empty source going from 0 characters to j characters
+requires j inserts. Having computed D[i, j] for small i, j we then compute larger
+D[i, j] based on previously computed smaller values. The value of D[i, j] is com-
+puted by taking the minimum of the three possible paths through the matrix which
+arrive there:
+
+\[
+    D[i, j] = \min \begin{cases}
+        D[i - 1, j] + \text{del-cost}(\text{source}[i]) \\
+        D[i, j - 1] + \text{ins-cost}(\text{target}[j]) \\
+        D[i - 1, j - 1] + \text{sub-cost}(\text{source}[i], \text{target}[j])
+    \end{cases}
+\]
+
+
+You can make it more flexible by assigning higher or lower costs to different substitutions (e.g., for phonetic similarity), but usually it's just 0 or 1.
+
+
+
+
+
+\subsection{Summary}
+
+This weeks reading focuses on regular expressions, tokenization, and edit distance. RegEx is a powerful programming language built into linux
+that allows the user to sift through large text files. Tokenization is concerned with transforming the text into bite size words that the computer can count and evaluate.
+
+
+
+
+\subsection{Questions}
+
+\end{document}
+
