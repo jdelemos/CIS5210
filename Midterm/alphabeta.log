@@ -1,0 +1,1164 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.8.21)  7 OCT 2025 20:24
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex
+(c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-08-13>
+(c:/texlive/2025/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(c:/texlive/2025/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count275
+\c@section=\count276
+\c@subsection=\count277
+\c@subsubsection=\count278
+\c@paragraph=\count279
+\c@subparagraph=\count280
+\c@figure=\count281
+\c@table=\count282
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen148
+) (c:/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (c:/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (c:/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count283
+\Gm@cntv=\count284
+\c@Gm@tempcnt=\count285
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks18
+) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/06/16 v2.17y AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen157
+)) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen158
+) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count286
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count287
+\leftroot@=\count288
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count289
+\DOTSCASE@=\count290
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen159
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count291
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count292
+\dotsspace@=\muskip17
+\c@parentequation=\count293
+\dspbrk@lvl=\count294
+\tag@help=\toks20
+\row@=\count295
+\column@=\count296
+\maxfields@=\count297
+\andhelp@=\toks21
+\eqnshift@=\dimen160
+\alignsep@=\dimen161
+\tagshift@=\dimen162
+\tagwidth@=\dimen163
+\totwidth@=\dimen164
+\lineht@=\dimen165
+\@envbody=\toks22
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
+) (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (c:/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2025/05/25 v2.0a multicolumn formatting (FMi)
+\c@tracingmulticols=\count298
+\mult@box=\box55
+\multicol@leftmargin=\dimen166
+\c@unbalance=\count299
+\c@collectmore=\count300
+\doublecol@number=\count301
+\multicoltolerance=\count302
+\multicolpretolerance=\count303
+\full@width=\dimen167
+\page@free=\dimen168
+\premulticols=\dimen169
+\postmulticols=\dimen170
+\multicolsep=\skip54
+\multicolbaselineskip=\skip55
+\partial@page=\box56
+\last@line=\box57
+\mc@boxedresult=\box58
+\maxbalancingoverflow=\dimen171
+\mult@rightbox=\box59
+\mult@grightbox=\box60
+\mult@firstbox=\box61
+\mult@gfirstbox=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\c@minrows=\count304
+\c@columnbadness=\count305
+\c@finalcolumnbadness=\count306
+\last@try=\dimen172
+\multicolovershoot=\dimen173
+\multicolundershoot=\dimen174
+\mult@nat@firstbox=\box99
+\colbreak@box=\box100
+\mc@col@check@num=\count307
+\g__mc_curr_col_int=\count308
+) (c:/texlive/2025/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip56
+\enit@outerparindent=\dimen175
+\enit@toks=\toks24
+\enit@inbox=\box101
+\enit@count@id=\count309
+\enitdp@description=\count310
+) (c:/texlive/2025/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen176
+\lightrulewidth=\dimen177
+\cmidrulewidth=\dimen178
+\belowrulesep=\dimen179
+\belowbottomsep=\dimen180
+\aboverulesep=\dimen181
+\abovetopsep=\dimen182
+\cmidrulesep=\dimen183
+\cmidrulekern=\dimen184
+\defaultaddspace=\dimen185
+\@cmidla=\count311
+\@cmidlb=\count312
+\@aboverulesep=\dimen186
+\@belowrulesep=\dimen187
+\@thisruleclass=\count313
+\@lastruleclass=\count314
+\@thisrulewidth=\dimen188
+) (c:/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks25
+\pgfutil@tempdima=\dimen189
+\pgfutil@tempdimb=\dimen190
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box102
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2025-08-14 v3.1.11 (3.1.11)
+))
+Package: pgf 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen191
+\Gin@req@width=\dimen192
+) (c:/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks26
+\pgfkeys@temptoks=\toks27
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks28
+))
+\pgf@x=\dimen193
+\pgf@y=\dimen194
+\pgf@xa=\dimen195
+\pgf@ya=\dimen196
+\pgf@xb=\dimen197
+\pgf@yb=\dimen198
+\pgf@xc=\dimen199
+\pgf@yc=\dimen256
+\pgf@xd=\dimen257
+\pgf@yd=\dimen258
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count315
+\c@pgf@countb=\count316
+\c@pgf@countc=\count317
+\c@pgf@countd=\count318
+\t@pgf@toka=\toks29
+\t@pgf@tokb=\toks30
+\t@pgf@tokc=\toks31
+\pgf@sys@id@count=\count319
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2025-08-14 v3.1.11 (3.1.11)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2025-08-14 v3.1.11 (3.1.11)
+))) (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfsyssoftpath@smallbuffer@items=\count320
+\pgfsyssoftpath@bigbuffer@items=\count321
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2025-08-14 v3.1.11 (3.1.11)
+)) (c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen259
+\pgfmath@count=\count322
+\pgfmath@box=\box103
+\pgfmath@toks=\toks32
+\pgfmath@stack@operand=\toks33
+\pgfmath@stack@operation=\toks34
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count323
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@picminx=\dimen260
+\pgf@picmaxx=\dimen261
+\pgf@picminy=\dimen262
+\pgf@picmaxy=\dimen263
+\pgf@pathminx=\dimen264
+\pgf@pathmaxx=\dimen265
+\pgf@pathminy=\dimen266
+\pgf@pathmaxy=\dimen267
+\pgf@xx=\dimen268
+\pgf@xy=\dimen269
+\pgf@yx=\dimen270
+\pgf@yy=\dimen271
+\pgf@zx=\dimen272
+\pgf@zy=\dimen273
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@path@lastx=\dimen274
+\pgf@path@lasty=\dimen275
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@shorten@end@additional=\dimen276
+\pgf@shorten@start@additional=\dimen277
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfpic=\box104
+\pgf@hbox=\box105
+\pgf@layerbox@main=\box106
+\pgf@picture@serial@count=\count324
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgflinewidth=\dimen278
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@pt@x=\dimen279
+\pgf@pt@y=\dimen280
+\pgf@pt@temp=\dimen281
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfarrowsep=\dimen282
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@max=\dimen283
+\pgf@sys@shading@range@num=\count325
+\pgf@shadingcount=\count326
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfexternal@startupbox=\box107
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2025-08-14 v3.1.11 (3.1.11)
+))) (c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfnodeparttextbox=\box108
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2025-08-14 v3.1.11 (3.1.11)
+\pgf@nodesepstart=\dimen284
+\pgf@nodesepend=\dimen285
+) (c:/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2025-08-14 v3.1.11 (3.1.11)
+)) (c:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (c:/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2025-08-14 v3.1.11 (3.1.11)
+\pgffor@iter=\dimen286
+\pgffor@skip=\dimen287
+\pgffor@stack=\toks35
+\pgffor@toks=\toks36
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgf@plot@mark@count=\count327
+\pgfplotmarksize=\dimen288
+)
+\tikz@lastx=\dimen289
+\tikz@lasty=\dimen290
+\tikz@lastxsaved=\dimen291
+\tikz@lastysaved=\dimen292
+\tikz@lastmovetox=\dimen293
+\tikz@lastmovetoy=\dimen294
+\tikzleveldistance=\dimen295
+\tikzsiblingdistance=\dimen296
+\tikz@figbox=\box109
+\tikz@figbox@bg=\box110
+\tikz@tempbox=\box111
+\tikz@tempbox@bg=\box112
+\tikztreelevel=\count328
+\tikznumberofchildren=\count329
+\tikznumberofcurrentchild=\count330
+\tikz@fig@count=\count331
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfmatrixcurrentrow=\count332
+\pgfmatrixcurrentcolumn=\count333
+\pgf@matrix@numberofcolumns=\count334
+)
+\tikz@expandcount=\count335
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2025-08-14 v3.1.11 (3.1.11)
+))) (c:/texlive/2025/texmf-dist/tex/latex/forest/forest.sty
+Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2025-08-14 v3.1.11 (3.1.11)
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2025-08-14 v3.1.11 (3.1.11)
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2025-08-14 v3.1.11 (3.1.11)
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2025-08-14 v3.1.11 (3.1.11)
+)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2025-08-14 v3.1.11 (3.1.11)
+ (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2025-08-14 v3.1.11 (3.1.11)
+\pgfnodepartlowerbox=\box113
+\pgfnodeparttwobox=\box114
+\pgfnodepartthreebox=\box115
+\pgfnodepartfourbox=\box116
+\pgfnodeparttwentybox=\box117
+\pgfnodepartnineteenbox=\box118
+\pgfnodeparteighteenbox=\box119
+\pgfnodepartseventeenbox=\box120
+\pgfnodepartsixteenbox=\box121
+\pgfnodepartfifteenbox=\box122
+\pgfnodepartfourteenbox=\box123
+\pgfnodepartthirteenbox=\box124
+\pgfnodeparttwelvebox=\box125
+\pgfnodepartelevenbox=\box126
+\pgfnodeparttenbox=\box127
+\pgfnodepartninebox=\box128
+\pgfnodeparteightbox=\box129
+\pgfnodepartsevenbox=\box130
+\pgfnodepartsixbox=\box131
+\pgfnodepartfivebox=\box132
+))) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2025-08-14 v3.1.11 (3.1.11)
+) (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+\pgf@intersect@solutions=\count336
+) (c:/texlive/2025/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks37
+\pgfopts@list@add@b@toks=\toks38
+) (c:/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count337
+) (c:/texlive/2025/texmf-dist/tex/latex/elocalloc/elocalloc.sty
+Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
+) (c:/texlive/2025/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (c:/texlive/2025/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)) (c:/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-08-13 L3 programming layer (loader) 
+ (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count338
+))
+Package: xparse 2024-08-16 L3 Experimental document command parser
+) (c:/texlive/2025/texmf-dist/tex/latex/inlinedef/inlinedef.sty
+Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
+\ID@toks=\toks39
+\ID@count=\count339
+)
+\ID@usercommands=\toks40
+\safeloop@depth=\count340
+\safeRKloop@depth=\count341
+\forest@temp@dimen=\dimen297
+\forest@temp@count=\count342
+\forest@n=\count343
+\forest@temp@global@count=\count344
+\forest@temp@toks=\toks41
+\forest@temparray@M=\count345
+\forest@temparray@N=\count346
+\forest@global@temparray@M=\count347
+\forest@global@temparray@N=\count348
+\forest@isnum@count=\count349
+\forest@isdim@nonintpart=\count350
+\forest@isdim@dimen=\dimen298
+\forest@sort@m=\count351
+\forest@sort@k=\count352
+\forest@sort@p=\count353
+\bracket@content=\toks42
+\bracket@afterthought=\toks43
+\forest@node@maxid=\count354
+\forest@process@left@M=\count355
+\forest@process@left@N=\count356
+\forest@process@right@M=\count357
+\forest@process@right@N=\count358
+\forest@process@saved@M=\count359
+\forest@process@saved@N=\count360
+\forest@process@result@M=\count361
+\forest@process@result@N=\count362
+\forest@process@n=\count363
+\forest@nodewalk@branch@toks=\toks44
+\forest@nodewalk@shortsteps@resolution=\toks45
+\forest@do@dynamics=\toks46
+\forest@box=\box133
+\forest@xg=\dimen299
+\forest@yg=\dimen300
+\forest@xs=\dimen301
+\forest@ys=\dimen302
+\forest@pi@toks=\toks47
+\forest@segment@toks=\toks48
+\forest@PIi@toks=\toks49
+\forest@PIii@toks=\toks50
+\forest@copy@in=\read3
+\forest@copy@out=\write4
+\forest@externalize@max@outer@n=\count364
+\forest@externalize@inner@n=\count365
+) (c:/texlive/2025/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box134
+\beforetitleunit=\skip57
+\aftertitleunit=\skip58
+\ttl@plus=\dimen303
+\ttl@minus=\dimen304
+\ttl@toksa=\toks51
+\titlewidth=\dimen305
+\titlewidthlast=\dimen306
+\titlewidthfirst=\dimen307
+) (./alphabeta.aux)
+\openout1 = `alphabeta.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(0.0pt, 614.295pt, 0.0pt)
+* v-part:(T,H,B)=(0.0pt, 794.96999pt, 0.0pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=614.295pt
+* \textheight=794.96999pt
+* \oddsidemargin=-72.26999pt
+* \evensidemargin=-72.26999pt
+* \topmargin=-109.26999pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count366
+\scratchdimen=\dimen308
+\scratchbox=\box135
+\nofMPsegments=\count367
+\nofMParguments=\count368
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count369
+\MPscratchDim=\dimen309
+\MPnumerator=\count370
+\makeMPintoPDFobject=\count371
+\everyMPtoPDFconversion=\toks53
+) (c:/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (c:/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:36: LaTeX Error: Unicode character α (U+03B1)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \small Root MAX → MIN → MAX. Write α
+                                              , β at each internal node.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:36: LaTeX Error: Unicode character β (U+03B2)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \small Root MAX → MIN → MAX. Write α, β
+                                                   at each internal node.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+ (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:90: Package pgf Error: Unknown arrow tip kind 'Latex'.
+
+See the pgf package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.90 \end{forest}
+                 
+(That was another \errmessage.)
+
+Missing character: There is no p in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no @ in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no p in font nullfont!
+
+Overfull \hbox (10.89726pt too wide) in paragraph at lines 90--91
+ [] 
+ []
+
+
+Overfull \hbox (14.19273pt too wide) in paragraph at lines 109--110
+[]\OT1/cmr/m/n/10 Visit or-der (leaves): [] 
+ []
+
+
+Overfull \hbox (2.66495pt too wide) in paragraph at lines 111--112
+[]\OT1/cmr/m/n/10 Pruned sub-trees: [] 
+ []
+
+
+
+
+
+
+
+
+
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:121: I can't write on file `alphabeta.pdf'.
+(Press Enter to retry, or Control-Z to exit; default file extension is `.pdf')
+Please type another file name for output
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:121: Emergency stop.
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.121 \newpage
+              
+*** (job aborted, file error in nonstop mode)
+
+ 
+Here is how much of TeX's memory you used:
+ 27895 strings out of 467799
+ 634919 string characters out of 5436040
+ 1050675 words of memory out of 5000000
+ 56222 multiletter control sequences out of 15000+600000
+ 630408 words of font info for 54 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 127i,12n,131p,1652b,2758s stack positions out of 10000i,1000n,20000p,200000b,200000s
+c:/Users/jonmi/Documents/Penn/CIS5210/Midterm/alphabeta.tex:121:  ==> Fatal error occurred, no output PDF file produced!

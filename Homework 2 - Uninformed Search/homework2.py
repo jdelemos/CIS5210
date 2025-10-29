@@ -1,5 +1,4 @@
 import math
-import numpy as np
 import random
 import copy
 
@@ -134,7 +133,7 @@ class LightsOutPuzzle(object):
             for y in range(self.cols):
                 b = self.copy()
                 b.perform_move(x, y)
-                yield (b, (x, y))
+                yield ((x, y), b)
 
     def find_solution(self):
         frontier = [(self.copy(), [])]
@@ -162,7 +161,9 @@ class LightsOutPuzzle(object):
 
 
 def create_puzzle(rows, cols):
-    board = np.zeros((rows, cols), dtype=bool)
+    if rows == 0 or cols == 0:
+        return None
+    board = list([[False for _ in range(cols)] for _ in range(rows)])
     return LightsOutPuzzle(board)
 
 

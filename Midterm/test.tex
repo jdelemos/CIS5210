@@ -1,0 +1,252 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=black}
+\setlist[itemize]{left=1.25em}
+\setlist[enumerate]{left=1.25em,labelsep=0.5em}
+
+% Toggle answer key at the end
+\newif\ifincludeanswers
+\includeanswerstrue     % <-- set to \includeanswersfalse for a student-only version
+
+\newcommand{\pts}[1]{\hfill{\small[\textbf{#1} pts]}}
+
+\title{\vspace{-1em}Timed Practice Exam 1\\
+\normalsize (Python, Agents, Search, Games, CSPs, Logic)}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+\vspace{-2em}
+\hrule
+\begin{itemize}
+    \item Time limit: 75 minutes \qquad Total: 100 points
+    \item Show work where requested. Circle choices for MCQs.
+    \item A single 1-page notesheet is allowed. No electronic devices.
+\end{itemize}
+\hrule
+\vspace{1em}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{1. Python Review} \hfill {\small[~14 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(1)} What is the output? \pts{3}
+
+\begin{verbatim}
+def f(xs, k=2):
+    ys = xs[:]          # copy
+    ys.append(k)
+    return sum(y for y in ys if y % k == 0)
+
+print(f([1,2,3], k=3))
+\end{verbatim}
+
+\noindent\textbf{(2)} What does this print? \pts{3}
+
+\begin{verbatim}
+def g(a, L=None):
+    if L is None: L = []
+    L.append(a)
+    return L
+
+x = g(1); y = g(2); z = g(3, [])
+print(x, y, z)
+\end{verbatim}
+
+\noindent\textbf{(3)} Circle \emph{all} true statements. \pts{4}
+\begin{enumerate}[label=(\alph*)]
+\item \verb|tuple| is immutable; \verb|list| is mutable.
+\item \verb|dict| keys must be hashable.
+\item \verb|set([1,2,2,3])| has length 4.
+\item \verb|'a' in {'a': 1, 'b': 2}| is \verb|True|.
+\end{enumerate}
+
+\noindent\textbf{(4)} Write a one-liner to produce a list of squares for even $x$ in \verb|range(10)|. \pts{4}
+
+\vspace{0.6em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{2. Rational Agents} \hfill {\small[~12 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(5)} Define a rational agent in one sentence. \pts{3}
+
+\noindent\textbf{(6)} Circle the correct PEAS for a web search agent. \pts{3}
+\begin{enumerate}[label=(\alph*)]
+\item Performance: precision/recall; Environment: web; Actuators: ranked results; Sensors: user queries.
+\item Performance: page rank only; Environment: robot grid; Actuators: wheels; Sensors: cameras.
+\item Performance: F1 of results; Environment: web; Actuators: result ordering; Sensors: query logs.
+\end{enumerate}
+
+\noindent\textbf{(7)} Circle all that can make an environment more difficult. \pts{3}
+\begin{enumerate}[label=(\alph*)]
+\item Partial observability
+\item Stochastic dynamics
+\item Single agent only
+\item Continuous state/action
+\end{enumerate}
+
+\noindent\textbf{(8)} Briefly: Model-based vs. goal-based vs. utility-based agents. \pts{3}
+
+\vspace{0.6em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{3. Uninformed Search} \hfill {\small[~14 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(9)} Circle \emph{both} complete \& optimal under unit step costs. \pts{4}
+\begin{enumerate}[label=(\alph*)]
+\item BFS
+\item DFS
+\item Uniform-Cost Search
+\item Iterative Deepening (on depth, unit cost)
+\end{enumerate}
+
+\noindent\textbf{(10)} Branching factor $b=3$, shallowest goal at depth $d=4$. Give time/space complexities of BFS. \pts{4}
+
+\noindent\textbf{(11)} Define \textit{completeness} and \textit{optimality} for search. \pts{3}
+
+\noindent\textbf{(12)} Why can DFS be incomplete? Give a typical failure mode. \pts{3}
+
+\vspace{0.6em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{4. Informed Search (Heuristics \& A*)} \hfill {\small[~18 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(13)} Define \textbf{admissible} and \textbf{consistent} heuristics. \pts{4}
+
+\noindent\textbf{(14)} Suppose $h$ is admissible but \emph{not} consistent. Is A* still optimal? Explain briefly. \pts{4}
+
+\noindent\textbf{(15)} Weighted A*: $f(n)=g(n)+w\,h(n)$ with $w>1$. Circle true. \pts{4}
+\begin{enumerate}[label=(\alph*)]
+\item Always optimal
+\item Completeness depends on details but often holds for positive costs
+\item Expands fewer nodes than A* (typically)
+\item Trades solution quality for speed
+\end{enumerate}
+
+\noindent\textbf{(16)} Manhattan distance for 8-puzzle is admissible. Give 1 sentence why. \pts{3}
+
+\noindent\textbf{(17)} IDA* vs A*: one advantage and one disadvantage. \pts{3}
+
+\vspace{0.6em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{5. Adversarial Search (Games)} \hfill {\small[~14 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(18)} Define minimax value of a game state. \pts{3}
+
+\noindent\textbf{(19)} Alpha–beta pruning: circle all true. \pts{4}
+\begin{enumerate}[label=(\alph*)]
+\item Never changes the minimax value.
+\item Order of move evaluation can affect amount of pruning.
+\item Guarantees exploring only $O(b^{d/2})$ nodes in worst case.
+\item Can prune even if the exact values of some nodes are unknown.
+\end{enumerate}
+
+\noindent\textbf{(20)} You have a depth limit and an evaluation function. What is one standard way to mitigate horizon effects? \pts{3}
+
+\noindent\textbf{(21)} In a zero-sum deterministic game with perfect information, why is expectimax \emph{not} appropriate? \pts{4}
+
+\vspace{0.6em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{6. Constraint Satisfaction Problems (CSPs)} \hfill {\small[~16 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(22)} Define a CSP (variables, domains, constraints). \pts{3}
+
+\noindent\textbf{(23)} Circle all that are standard CSP speedups. \pts{4}
+\begin{enumerate}[label=(\alph*)]
+\item MRV (minimum remaining values)
+\item Most constraining variable (degree heuristic)
+\item Least constraining value
+\item Random restarts only
+\end{enumerate}
+
+\noindent\textbf{(24)} Briefly: what does \emph{forward checking} do during backtracking search? \pts{3}
+
+\noindent\textbf{(25)} Arc consistency (AC-3) in one sentence, and its worst-case complexity in terms of $n$ variables and domain size $d$. \pts{3}
+
+\noindent\textbf{(26)} Local search with min-conflicts: state representation and move rule. \pts{3}
+
+\vspace{0.6em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{7. Logical Agents (Propositional Logic)} \hfill {\small[~12 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(27)} Entailment vs. inference: define $\models$ and $\vdash$. \pts{3}
+
+\noindent\textbf{(28)} Soundness and completeness in one line each. \pts{3}
+
+\noindent\textbf{(29)} Put the formula into CNF: $\ (P \Rightarrow Q) \Leftrightarrow R$. \pts{3}
+
+\noindent\textbf{(30)} \textbf{Resolution} (one step): from $(A \vee B)$ and $(\neg B \vee C)$ derive \underline{\hspace{2cm}}. \pts{3}
+
+\vspace{0.6em}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{8. Mixed Short Problems} \hfill {\small[~10 points]}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\noindent\textbf{(31)} Python: What does this print? \pts{3}
+\begin{verbatim}
+def h(xs):
+    return {x for x in xs if xs.count(x) == 1}
+print(sorted(h([3,1,2,3,2,4])))
+\end{verbatim}
+
+\noindent\textbf{(32)} Heuristics: Give one reason an admissible heuristic can still be weak in practice. \pts{3}
+
+\noindent\textbf{(33)} Games: Name one technique (besides alpha–beta) that improves practical play strength with a fixed time budget. \pts{4}
+
+\vfill
+\hrule
+\smallskip
+\noindent\textbf{End of Exam}
+
+% ===================== ANSWER KEY =========================
+\ifincludeanswers
+\newpage
+\section*{Answer Key (Concise)}
+\small
+\begin{enumerate}[left=0em,itemsep=0.25em]
+\item 6
+\item [1] [2] [3]
+\item (a), (b), (d)
+\item \verb|[x*x for x in range(10) if x % 2 == 0]|
+\item Maximizes expected performance given percepts/knowledge.
+\item (a) \textit{(c acceptable)}
+\item (a), (b), (d)
+\item Model-based: internal state; Goal-based: achieve goals; Utility-based: maximize expected utility.
+\item (a), (d)
+\item Time $O(3^4)=O(81)$; Space $O(81)$
+\item Completeness: finds a solution if one exists. Optimality: finds least-cost solution.
+\item May follow infinite path / get stuck in cycles; fails to backtrack to shallow solutions.
+\item Admissible: $h\le h^*$. Consistent: $h(n)\le c(n,a,n')+h(n')$.
+\item Not guaranteed under closed-list graph search; need re-open for optimality.
+\item (b), (c), (d)
+\item Tiles must move at least their Manhattan distance (lower bound).
+\item Adv: low memory; Disadv: more node expansions.
+\item Utility under optimal play (MAX vs MIN).
+\item (a), (b), (d)
+\item Quiescence search.
+\item Adversarial setting; use minimax (not expectation).
+\item Variables, domains, constraints; find consistent complete assignment.
+\item (a), (b), (c)
+\item Prune neighbor domains after assignment; fail early on empty domain.
+\item Each value must be supported in neighbors; $O(n^2 d^3)$.
+\item State: complete assignment; Move: pick conflicted var, assign min-violations value.
+\item $\models$: semantic entailment; $\vdash$: syntactic derivation.
+\item Sound: $\vdash \Rightarrow \models$; Complete: $\models \Rightarrow \vdash$.
+\item $(P\vee R)\wedge(\neg Q\vee R)\wedge(\neg R\vee \neg P\vee Q)$
+\item $(A \vee C)$
+\item \verb|[1, 4]|
+\item Too low/informative $\Rightarrow$ behaves like UCS (many expansions).
+\item Move ordering (e.g., history/killer moves) \textit{(any valid example OK)}.
+\end{enumerate}
+\fi
+
+\end{document}

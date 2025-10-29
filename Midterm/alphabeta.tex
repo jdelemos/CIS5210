@@ -1,0 +1,170 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{forest}
+\usepackage{titlesec}
+
+\pagestyle{empty}
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+
+% Spacious forest + alpha/beta write-in boxes
+\forestset{
+  declare toks={role}{} ,
+  MAX/.style={draw, rounded corners=2pt, inner sep=2pt, role=MAX,
+              label=below:{\scriptsize $\alpha=$\rule{0.6cm}{0.15mm}\; $\beta=$\rule{0.6cm}{0.15mm}}},
+  MIN/.style={draw, rounded corners=2pt, inner sep=2pt, role=MIN,
+              label=below:{\scriptsize $\alpha=$\rule{0.6cm}{0.15mm}\; $\beta=$\rule{0.6cm}{0.15mm}}},
+  LEAF/.style={draw, circle, inner sep=2pt},
+  s/.style={for tree={
+      edge={-Latex},
+      l sep+=28pt, % horizontal spacing
+      s sep+=20pt, % vertical spacing
+  }}
+}
+
+\newcommand{\ansbox}[1]{\framebox[#1]{\rule{0pt}{1.25em}}}
+
+\begin{document}
+
+\begin{center}
+\Large 3-Ply Alpha–Beta Pruning Worksheet — Set 2\\
+\small Root MAX → MIN → MAX. Write α, β at each internal node.
+\end{center}
+
+\noindent Alpha–beta recap
+\begin{itemize}[leftmargin=12pt, itemsep=2pt, topsep=2pt]
+  \item Keep bounds: $\alpha$ (best for MAX so far), $\beta$ (best for MIN so far).
+  \item MAX: update $\alpha=\max(\alpha,v)$; MIN: update $\beta=\min(\beta,v)$.
+  \item Prune when $\alpha \ge \beta$ at a node.
+  \item Start at root with $(-\infty,+\infty)$; traverse left to right.
+\end{itemize}
+
+\hrule
+\vspace{6pt}
+
+\section*{Exercise C — Left-to-right traversal}
+
+\begin{center}
+\begin{forest}
+s
+[MAX, MAX
+  [MIN, MIN
+    [MAX, MAX
+      [\textbf{6}, LEAF]
+      [\textbf{15}, LEAF]
+    ]
+    [MAX, MAX
+      [\textbf{3}, LEAF]
+      [\textbf{5}, LEAF]
+      [\textbf{9}, LEAF]
+    ]
+  ]
+  [MIN, MIN
+    [MAX, MAX
+      [\textbf{4}, LEAF]
+      [\textbf{12}, LEAF]
+    ]
+    [MAX, MAX
+      [\textbf{2}, LEAF]
+      [\textbf{11}, LEAF]
+      [\textbf{7}, LEAF]
+    ]
+  ]
+  [MIN, MIN
+    [MAX, MAX
+      [\textbf{10}, LEAF]
+      [\textbf{8}, LEAF]
+    ]
+    [MAX, MAX
+      [\textbf{13}, LEAF]
+      [\textbf{1}, LEAF]
+      [\textbf{14}, LEAF]
+    ]
+  ]
+]
+\end{forest}
+\end{center}
+
+\begin{multicols}{2}
+\noindent Root (MAX) initial $(\alpha,\beta)=(-\infty,+\infty)$
+
+\smallskip
+\begin{tabular}{@{}llll@{}}
+\toprule
+Child & Result & $\alpha$ & $\beta$ \\
+\midrule
+Left MIN  & \ansbox{1.6cm} & \ansbox{1.6cm} & \ansbox{1.6cm} \\
+Middle MIN& \ansbox{1.6cm} & \ansbox{1.6cm} & \ansbox{1.6cm} \\
+Right MIN & \ansbox{1.6cm} & \ansbox{1.6cm} & \ansbox{1.6cm} \\
+\bottomrule
+\end{tabular}
+
+\columnbreak
+
+Visit order (leaves): \ansbox{7.5cm}
+
+Pruned subtrees: \ansbox{7.5cm}
+
+Root value: \ansbox{2.3cm}  Chosen move: \ansbox{3.0cm}
+\end{multicols}
+
+\vfill
+\begin{center}
+\small Answer key on back
+\end{center}
+
+\newpage
+% =========================  ANSWER KEY  =========================
+\begin{center}
+\Large Answer Key — Set 2
+\end{center}
+
+\noindent Values of each internal node (left-to-right):
+\begin{itemize}[leftmargin=14pt, itemsep=2pt, topsep=2pt]
+  \item Left MIN: children MAX values $15$ and $9$ $\Rightarrow \min(15,9)=\mathbf{9}$.
+  \item Middle MIN: children MAX values $12$ and $11$ $\Rightarrow \min(12,11)=\mathbf{11}$.
+  \item Right MIN: children MAX values $10$ and $14$ $\Rightarrow \min(10,14)=\mathbf{10}$.
+  \item Root MAX: $\max(9,11,10)=\mathbf{11}$, choose the middle branch.
+\end{itemize}
+
+\noindent Alpha–beta trace (concise):
+\begin{enumerate}[leftmargin=14pt, itemsep=2pt]
+  \item Root: $(\alpha,\beta)=(-\infty,+\infty)$.
+  \item Enter Left MIN with $(-\infty,+\infty)$.
+    \begin{itemize}[leftmargin=12pt]
+      \item MAX A [6,15] with $(-\infty,+\infty)\rightarrow 15$; Left MIN $\beta=15$.
+      \item MAX B [3,5,9] with $(-\infty,15)\rightarrow 9$; Left MIN $\beta=\min(15,9)=9$.
+      \item Left MIN returns $9$.
+    \end{itemize}
+    Root $\alpha=\max(-\infty,9)=9$.
+  \item Enter Middle MIN with $(\alpha,\beta)=(9,+\infty)$.
+    \begin{itemize}[leftmargin=12pt]
+      \item MAX C [4,12] with $(9,+\infty)\rightarrow 12$; Middle MIN $\beta=12$.
+      \item MAX D [2,11,7] with $(9,12)\rightarrow 11$; Middle MIN $\beta=\min(12,11)=11$.
+      \item Middle MIN returns $11$.
+    \end{itemize}
+    Root $\alpha=\max(9,11)=11$.
+  \item Enter Right MIN with $(\alpha,\beta)=(11,+\infty)$.
+    \begin{itemize}[leftmargin=12pt]
+      \item MAX E [10,8] with $(11,+\infty)\rightarrow 10$; Right MIN $\beta=10$.
+      \item Cutoff: inherited $\alpha=11 \ge \beta=10$ at Right MIN, so prune MAX F entirely.
+      \item Right MIN returns $9? \,$No, it returns current $\beta=\mathbf{10}$.
+    \end{itemize}
+    Root final $\alpha=\max(11,10)=\mathbf{11}$.
+\end{enumerate}
+
+\noindent Visit order of leaves:
+\[
+6,\,15,\,3,\,5,\,9,\,4,\,12,\,2,\,11,\,7,\,10,\,8.
+\]
+Pruned subtrees:
+\[
+\text{Entire right-branch second child MAX }F\text{ with leaves }[13,1,14].
+\]
+
+\end{document}

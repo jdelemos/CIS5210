@@ -1,0 +1,433 @@
+﻿\documentclass[10pt]{article}
+
+% Zero margins
+\usepackage[paperwidth=8.5in, paperheight=11in,
+            top=0in, bottom=0in, left=0in, right=0in]{geometry}
+
+% Two-column compact layout
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\setlength{\columnsep}{0.2in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Monospace font for code
+\usepackage{courier}
+\renewcommand{\ttdefault}{pcr}
+
+% Listings setup for pseudocode
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  keepspaces=true,
+  aboveskip=0pt,
+  belowskip=0pt
+}
+
+\begin{document}
+\begin{multicols*}{2}
+
+% ==================================================
+% Python Cheatsheet with Explanations
+% ==================================================
+
+\textbf{Lists}  
+\verb|mylist = [1, 2, 3]| → create a list  
+\verb|mylist[0]| → first element  
+\verb|mylist[1:3]| → slice elements 1–2  
+\verb|mylist[::-1]| → reverse list  
+\verb|copy = mylist[:] | → copy list  
+
+\textbf{List Comprehensions}  
+\verb|[x**2 for x in range(5)]| → squares 0–4  
+\verb|[1, 3, 5, …, 99]| = |[x for x in range(1, 100, 2)]| = |[2 * x + 1 for x in range(0, 50)]|
+\verb|[x for x in lst if x % 2 == 0]| → keep evens  
+
+\textbf{Dictionaries}  
+\verb|d = {'a':1, 'b':2}| → create dictionary  
+\verb|d['a']| → access value  
+\verb|d.keys()| → all keys  
+\verb|d.values()| → all values  
+\verb|{x:x**2 for x in range(5)}| → dict comprehension  
+
+\textbf{Sets}  
+\verb|s = {1,2,3}| → create set  
+\verb|s1 | s2| → union  
+\verb|s1 & s2| → intersection  
+
+\textbf{Tuples}  
+\verb|t = (1,2,3)| → immutable sequence  
+
+\textbf{Loops}  
+\verb|for i in range(5): ...| → repeat 5 times  
+\verb|while condition: ...| → loop until false  
+
+\textbf{Enumerate + Zip}  
+\verb|enumerate(lst)| → index + value  
+\verb|zip(list1, list2)| → pair items  
+
+\textbf{Conditionals}  
+\verb|if ... elif ... else ...| → branching  
+
+\textbf{Functions}  
+\verb|def f(x,y=2): return x+y| → define function  
+\verb|lambda x: x**2| → quick anonymous function  
+
+\textbf{Generators}  
+\verb|yield| → produce values lazily  
+
+\textbf{List Operations}  
+\verb|append| → add item  
+\verb|extend| → add multiple  
+\verb|insert| → add at position  
+\verb|pop| → remove last  
+\verb|remove| → delete by value  
+\verb|sum, min, max, sorted| → aggregate utilities  
+
+\textbf{Slicing Patterns}  
+\verb|seq[::2]| → every other  
+\verb|seq[:-1]| → all but last  
+\verb|seq[::-1]| → reversed  
+
+
+Before an agent can start searching, a \textbf{well-defined problem} must be formulated.  
+• Rational agents choose actions to maximize expected utility. Agent Function: simple reflex: percept only, model-based: percept + state, goal-based: model + goal, utility-based: model + goal + utility.
+• PEAS: Performance measure, Environment, Actuators, Sensors.
+• Search algorithms are judged on \textbf{completeness}, \textbf{optimality}, \textbf{time}, and \textbf{space} complexity.  
+
+\textbf{Uninformed search} uses only the problem definition:
+\textbf{Completeness} is considered complete when it guarantees to find a solution if one exists. 
+\textbf{Optimality} means it finds the least-cost solution if one exists. 
+\textbf{Admissible} means the heuristic never overestimates the true cost to reach the goal from node n, i.e., $h(n) \leq h^*(n)$.
+\textbf{Triange Inequality} $h(n)$ estimated cost from h -> g. $h(n')$ estimated cost from n' to g. $c(n, n')$ actual cost from n to n'. $h(n) \leq c(n, n') + h(n')$.
+\textbf{Consistent} estimated cost 
+– \textbf{Best-first search}: expands nodes using an evaluation function.  
+– \textbf{Breadth-first search}: expands shallowest nodes first; \textbf{complete} if finite branching factor, \textbf{optimal} if unit costs, but \textbf{exponential space}.  
+– \textbf{Uniform-cost search}: expands lowest path cost $g(n)$; \textbf{optimal} for general costs.  
+– \textbf{Depth-first search}: expands deepest nodes; \textbf{not complete}, \textbf{not optimal}, but \textbf{linear space}.  
+– \textbf{Depth-limited search}: DFS with depth bound.  
+– \textbf{Iterative deepening search}: runs DFS with increasing depth; \textbf{complete}, \textbf{optimal} if unit costs, \textbf{linear space}.  
+– \textbf{Bidirectional search}: expands from initial and goal until they meet; \textbf{very efficient} in some problems.  
+
+\textbf{Informed search} uses a heuristic $h(n)$:  
+– \textbf{Greedy best-first search}: expands lowest $h(n)$;\textbf{ Not complete} \textbf{not optimal}, often efficient.  
+– \textbf{A* search}: expands lowest $f(n)=g(n)+h(n)$; \textbf{complete and optimal} if $h$ is \textbf{admissible}; space-heavy.  
+– \textbf{Bidirectional A*}: sometimes more efficient than A*.  
+– \textbf{IDA*}: iterative deepening A*; addresses \textbf{space issues}, still \textbf{optimal with admissible $h$}.  
+– \textbf{RBFS} (recursive best-first search) and \textbf{SMA*} (simplified memory-bounded A*): \textbf{optimal}, memory-bounded.  
+– \textbf{Beam search}: keeps only $k$ best nodes; \textbf{incomplete}, \textbf{suboptimal}, but fast.  
+– \textbf{Weighted A*}: expands fewer nodes using $f(n)=g(n)+w \cdot h(n)$; \textbf{faster}, but \textbf{not optimal}.  
+
+
+\textbf{Depth-First Search (DFS)}  
+• Uses a LIFO stack (explicit or recursion).  
+• Not complete (can get stuck in infinite path).  
+• Not optimal (returns first found solution).  
+• Time: O(b$^m$) \quad • Space: O(m)  
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+def DFS(problem):
+    stack = [(problem.start, [])]
+    visited = set()
+    while stack:
+        state, path = stack.pop()
+        if goal(state): return path
+        if state not in visited:
+            visited.add(state)
+            for a,s2 in successors(state):
+                stack.append((s2, path+[a]))
+\end{lstlisting}
+\end{minipage}
+
+\textbf{Breadth-First Search (BFS)}  
+• Complete if branching factor finite.  
+• Optimal if all step costs = 1.  
+• Time: O(b$^d$) \quad • Space: O(b$^d$)  
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+def BFS(problem):
+    queue = deque([(problem.start, [])])
+    visited = set()
+    while queue:
+        state, path = queue.popleft()
+        if goal(state): return path
+        if state not in visited:
+            visited.add(state)
+            for a,s2 in successors(state):
+                queue.append((s2, path+[a]))
+\end{lstlisting}
+\end{minipage}
+
+\textbf{Uniform Cost Search (UCS)}  
+• Expands node with lowest total path cost $f(n) = g(n)$.  
+• Uses priority queue (min-heap).  
+• Equivalent to Dijkstra’s algorithm.  
+• Complete if step costs $\geq \epsilon$.  
+• Optimal (finds least-cost solution).  
+• Time/Space: O(b$^{1+\lfloor C^*/\epsilon \rfloor}$)  
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+def UCS(problem):
+    frontier = [(0, problem.start, [])]
+    visited = {}  # state: best_cost
+    while frontier:
+        cost, state, path = heappop(frontier)
+        if goal(state): return path
+        if state not in visited or cost < visited[state]:
+            visited[state] = cost
+            for a,(s2,c) in successors(state):
+                heappush(frontier, (cost+c, s2, path+[a]))
+\end{lstlisting}
+\end{minipage}
+
+\textbf{Greedy Best-First Search}  
+• Expands node with lowest heuristic $f(n) = h(n)$.  
+• Ignores cost so far, can get stuck in loops.  
+• Complete: only in finite state spaces.  
+• Optimal: No (may find suboptimal paths).  
+• Time/Space: O(b$^m$).  
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+def Greedy(problem,h):
+    frontier = [(h(problem.start), problem.start, [])]
+    visited = set()
+    while frontier:
+        _, state, path = heappop(frontier)
+        if goal(state): return path
+        if state not in visited:
+            visited.add(state)
+            for a,s2 in successors(state):
+                heappush(frontier,(h(s2),s2,path+[a]))
+\end{lstlisting}
+\end{minipage}
+
+\textbf{A* Search}  
+• Evaluation function: $f(n) = g(n) + h(n)$.  
+• $g(n)$ = path cost so far, $h(n)$ = heuristic.  
+• Complete if step costs $\geq \epsilon$.  
+• Admissible $h$ guarantees optimality.  
+• Expands nodes in order of lowest $f(n)$.  
+• Optimal if $h$ is admissible.  
+• Time/Space: Exponential in worst case.  
+\begin{minipage}{\linewidth}
+\begin{lstlisting}
+def find_solution_a_star(self):    
+        tiebreaker = 0
+        path = []
+        frontier = PriorityQueue(), state = self.copy()
+        frontier.put((f_n, tiebreaker, g_n, path, state))
+        visited = set()
+        while frontier.qsize() > 0:
+            f, tie, g, path, state = frontier.get()
+            if state in visited:
+                continue
+            visited.add(state)
+            if state.is_solved():
+                return path
+            for move, succ_state in state.successors():
+                h_n = succ_state.manhattan()
+                g_n = g + 1
+                f_n = g_n + h_n
+                tiebr = tie + 1
+                if succ_state in visited:
+                    continue
+                frontier.put((f_n, tiebr, g_n, path + [move], succ_state))
+\end{lstlisting}
+\end{minipage}
+
+\textbf{Admissibility and Consistency}  
+• Admissible: never overestimates, therefore the highest value would be closest to the true estimate. $h(n) \leq h^*(n)$ (never overestimates true cost).  
+• Consistent: $h(n) \leq c(n,a,n') + h(n')$.  
+
+\textbf{Iterative Deepening A* (IDA*)}  
+• Uses $f(n)=g(n)+h(n)$ threshold, increases iteratively.  
+• Memory-bounded (like DFS).  
+• Complete and optimal with admissible $h$.  
+
+\textbf{Weighted A* Search}  
+• $f(n) = g(n) + W \cdot h(n)$, with $W > 1$.  
+• Faster but not guaranteed optimal. Useful for satisficing.  
+
+\begin{lstlisting}
+def __eq__(self, other):
+    return self.board == other.board
+
+def as_immutable(self):
+    return tuple(tuple(row) for row in self.board)
+
+def __hash__(self):
+    return hash(self.as_immutable())
+self.board = [[False for _ in range(self.cols)]
+                      for _ in range(self.rows)]
+\end{lstlisting}
+
+
+\textbf{Heuristics}  
+– Greedy = expand lowest $h$ (fast but not optimal).  
+– A* = expand lowest $g+h$ (optimal if admissible $h$).  
+– Manhattan distance = Tile Puzzle.  
+– Euclidean distance = Grid Navigation.  
+– IDA* = saves memory, optimal with admissible $h$.  
+– Weighted A* = faster, near-optimal.  
+
+\textbf{game} is defined by: \textbf{initial state}, \textbf{legal actions}, \textbf{result function}, \textbf{terminal test}, and a \textbf{utility function}.  
+• In \textbf{two-player, deterministic, zero-sum, perfect-information games}, \textbf{minimax} selects \textbf{optimal moves} by exhaustive depth-first search.  
+• \textbf{Alpha–beta pruning} computes the \textbf{same optimal move} as minimax but \textbf{prunes irrelevant subtrees} for efficiency, ALPHA is min (-inf), BETA is (inf).  
+• Full game trees are often infeasible; we use \textbf{cutoff depths} and an \textbf{evaluation function} to approximate utility at non-terminal nodes. \textbf{Complete} search means finding a solution in the game tree. \textbf{} 
+
+\textbf{How to evaluate alpha–beta minimax (step-by-step)}  
+1. \textbf{Initialize}: Start at root with $\alpha=-\infty$, $\beta=+\infty$.  
+2. \textbf{Max player’s turn}: For each child:  
+   – Compute its minimax value (recursively).  
+   – Update $\alpha = \max(\alpha, value)$.  
+   – If $\alpha \geq \beta$: \textbf{prune} (stop exploring siblings).  
+3. \textbf{Min player’s turn}: For each child:  
+   – Compute its minimax value (recursively).  
+   – Update $\beta = \min(\beta, value)$.  
+   – If $\beta \leq \alpha$: \textbf{prune} (stop exploring siblings).  
+4. \textbf{Terminal/cutoff}: If at terminal or depth limit, return \textbf{utility or evaluation}.  
+5. \textbf{Backtrack}: Values propagate upward. Root’s chosen action = child with best minimax value.  
+\textbf{Example}: Alpha= -inf, Beta= +inf
+- Left MIN: values [3,12,8] → returns 3; Alpha=3
+- Middle MIN: [8,2,...] → returns 2; Beta $\leq$ Alpha → prune
+- Right MIN: [14,5,2] → drops below Alpha=3 → prune
+Final choice: Left branch with value 3
+\textbf{Alpha-Beta Pruning}
+
+\textbf{Constraint Satisfaction Problems (CSPs)}  
+• Variables $X_1...X_n$ with domains $D_1...D_n$ and constraints $C_1...C_m$.  
+• Goal: find a \textbf{complete and consistent} assignment satisfying all constraints.  
+• Represented by a \textbf{constraint graph}: nodes = variables, edges = binary constraints.  
+• Constraint types: unary, binary, higher-order.  
+
+\textbf{Examples}  
+• Map coloring (adjacent regions differ in color).  
+• Sudoku (rows, columns, boxes contain unique numbers).  
+
+\textbf{CSP as Search}  
+• Initial state: $\{\}$ (empty assignment).  
+• Successor: assign a value consistent with constraints.  
+• Goal test: all variables assigned.  
+• Path cost: constant (depth = n).  
+→ Depth-first variant = \textbf{Backtracking Search}.  
+
+\textbf{Backtracking Search}  
+• Standard DFS that assigns one variable at a time.  
+• Backtrack when no legal values remain.  
+
+\textbf{Heuristics}  
+• \textbf{MRV (Most Constrained Variable)} – fewest legal values.  
+• \textbf{Most Constraining Variable} – affects the most others.  
+• \textbf{Least Constraining Value} – rules out fewest options.  
+• \textbf{Forward Checking} – prune domains of unassigned vars; fail early if domain empty.  
+
+\textbf{Constraint Propagation / Arc Consistency}  
+• Propagates constraint effects to reduce domains.  
+• $X_i$ arc-consistent w.r.t. $X_j$ if $\forall v \in D_i, \exists w \in D_j$ satisfying constraint.  
+
+\textbf{AC-3 Algorithm}  
+\begin{lstlisting}
+def AC3(csp):
+    queue = all_arcs(csp)
+    while queue:
+        (Xi,Xj) = queue.pop(0)
+        if remove_inconsistent(Xi,Xj):
+            for Xk in neighbors(Xi)-{Xj}:
+                queue.append((Xk,Xi))
+
+def remove_inconsistent(Xi,Xj):
+    removed = False
+    for x in domain[Xi]:
+        if not any(satisfies(x,y) for y in domain[Xj]):
+            domain[Xi].remove(x)
+            removed = True
+    return removed
+\end{lstlisting}
+
+• Complexity: $O(n^2 d^3)$ worst case.  
+
+\textbf{Local Search for CSPs}  
+• Operates on complete states; minimizes constraint violations.  
+• \textbf{Min-Conflicts heuristic:} choose conflicted variable, assign value violating fewest constraints.  
+• Effective for large CSPs (e.g., N-Queens).  
+
+\textbf{Tree-Structured CSPs}  
+• If graph is a tree → solvable in $O(nd^2)$ by topological ordering.  
+• \textbf{Cycle Cutset:} remove $c$ vars to make tree → $O(d^{c+2}(n-c))$.  
+
+\textbf{Backjumping / Conflict Sets}  
+• Instead of chronological backtracking, jump to the cause of conflict.  
+• Track conflict sets for efficiency.  
+
+\textbf{Beyond Binary Constraints}  
+• \textbf{Path consistency:} ensures triples $(X_i,X_j,X_k)$ consistent.  
+• \textbf{Global constraints:} apply to many vars (e.g., AllDifferent).  
+
+\textbf{Key Takeaways}  
+• CSPs identify satisfying assignments, not paths.  
+• Declarative representation + general algorithms = scalable reasoning framework.  
+\textbf{Logical Agents}  
+• Logic = representation of knowledge + inference.  
+• \textbf{Agents} derive new conclusions via reasoning instead of direct perception.  
+• A \textbf{knowledge base (KB)} = set of sentences in a formal language.  
+• An \textbf{inference algorithm} derives new sentences: KB $\vdash$ $\alpha$.  
+• If KB $\models$ $\alpha$, $\alpha$ is \textbf{entailed} (true in all worlds where KB is true).  
+
+\textbf{Model Theory}  
+• A \textbf{model} assigns truth values to each propositional symbol.  
+• KB $\models \alpha$ if every model that satisfies KB also satisfies $\alpha$.  
+• Inference algorithm is \textbf{sound} if $\text{KB} \vdash \alpha$ ⇒ $\text{KB} \models \alpha$.  
+• It is \textbf{complete} if $\text{KB} \models \alpha$ ⇒ $\text{KB} \vdash \alpha$.  
+
+\textbf{Propositional Logic}  
+• Symbols: P, Q, R, … (atomic sentences).  
+• Connectives: $\neg$ (not), $\wedge$ (and), $\vee$ (or), $\Rightarrow$ (implies), $\Leftrightarrow$ (biconditional).  
+• Example: $(P \wedge Q) \Rightarrow R$.  
+• Sentences built recursively from symbols and connectives.  
+
+\textbf{Truth Tables}  
+• Used to determine entailment by enumeration.  
+• \textbf{Procedure:} list all models, mark where KB true; if $\alpha$ true in all such models → KB $\models \alpha$.  
+• Exponential in number of variables ($O(2^n)$).  
+
+\textbf{Inference Rules (Sound)} 
+• \textbf{Forward Chaining:} from facts + rules infer new facts until goal found.  
+• \textbf{Backward Chaining:} start from goal, prove premises recursively.  
+
+\textbf{Converting to CNF (Conjunctive Normal Form)}  
+Eliminate $\Leftrightarrow$ and $\Rightarrow$.  
+Move $\neg$ inward via De Morgan’s laws.  
+Distribute $\vee$ over $\wedge$ (CNF).  
+Split conjunctions into separate clauses.  
+Used for \textbf{Resolution} and SAT solvers.  
+
+% Preamble needs:
+% \usepackage{amsmath,amssymb}
+% \usepackage{array}
+
+\scriptsize
+\setlength{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ll l}
+$(\alpha \wedge \beta) \equiv (\beta \wedge \alpha)$ & & commutativity of $\wedge$ \\
+$(\alpha \vee \beta) \equiv (\beta \vee \alpha)$ & & commutativity of $\vee$ \\
+$((\alpha \wedge \beta) \wedge \gamma) \equiv (\alpha \wedge (\beta \wedge \gamma))$ & & associativity of $\wedge$ \\
+$((\alpha \vee \beta) \vee \gamma) \equiv (\alpha \vee (\beta \vee \gamma))$ & & associativity of $\vee$ \\
+$\neg(\neg \alpha) \equiv \alpha$ & & double-negation elimination \\
+$(\alpha \Rightarrow \beta) \equiv (\neg \beta \Rightarrow \neg \alpha)$ & & contraposition \\
+$(\alpha \Rightarrow \beta) \equiv (\neg \alpha \vee \beta)$ & & implication elimination \\
+$(\alpha \Leftrightarrow \beta) \equiv ((\alpha \Rightarrow \beta)\wedge(\beta \Rightarrow \alpha))$ & & biconditional elimination \\
+$\neg(\alpha \wedge \beta) \equiv (\neg \alpha \vee \neg \beta)$ & & De Morgan \\
+$\neg(\alpha \vee \beta) \equiv (\neg \alpha \wedge \neg \beta)$ & & De Morgan \\
+$(\alpha \wedge (\beta \vee \gamma)) \equiv ((\alpha \wedge \beta)\vee(\alpha \wedge \gamma))$ & & dist. of $\wedge$ over $\vee$ \\
+$(\alpha \vee (\beta \wedge \gamma)) \equiv ((\alpha \vee \beta)\wedge(\alpha \vee \gamma))$ & & dist. of $\vee$ over $\wedge$ \\
+\end{tabular}
+
+
+\end{multicols*}
+\end{document}
+

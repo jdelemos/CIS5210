@@ -23,87 +23,185 @@ student_name = "Jonathon Michael Delemos"
 
 
 def sudoku_cells():
+    cells = []
     for i in range(9):
         for j in range(9):
-            yield (i, j)
+            cells.append((i, j))
+    return cells
 
 
 def sudoku_arcs():
-    pass
+    arcs = []
+    for cell1 in sudoku_cells():
+        for cell2 in sudoku_cells():
+            if cell1 != cell2 and (cell1[0] == cell2[0] or
+                                   cell1[1] == cell2[1] or (
+                    cell1[0] // 3 == cell2[0] // 3 and
+                    cell1[1] // 3 == cell2[1] // 3)):
+                arcs.append((cell1, cell2))
+    return arcs
 
 
 def read_board(path):
-    # open the file, read the lines, and create a dictionary mapping each cell to its value
+    # open the file, read the lines, and create a
+    # dictionary mapping each cell
+    # to its value
     with open(path, 'r') as f:
         board = {}
         for i in range(9):
-            for j in range(9):
-                for char in f.readline().strip():
-                    if char == '*':
-                        board[(i, j)] = set(range(1,10))
-                    else:
-                        board[(i, j)] = set(char)
-    return board        
+            line = f.readline().strip()
+            for j, char in enumerate(line):
+                if char == '*':
+                    board[(i, j)] = set(range(1, 10))
+                else:
+                    board[(i, j)] = {int(char)}
+
+    return board
+
 
 class Sudoku(object):
 
     CELLS = sudoku_cells()
     ARCS = sudoku_arcs()
 
-
-#     3 points] In this section, we will view a Sudoku puzzle not from the perspective of its grid
-# layout, but more abstractly as a collection of cells. Accordingly, we will represent it internally
-# as a dictionary mapping from cells, i.e. (row, column) pairs, to sets of possible values. This
-# dictionary should have a fixed (9 × 9 = 81) set of pairs of keys, but the number of elements in
-# each set corresponding to a key will change as the board is being manipulated.
-# In the Sudoku class, write an initialization method __init__(self, board) that stores such a
-# mapping for future use. Also write a method get_values(self, cell) that returns the set of
-# values currently available at a particular cell.
-# In addition, write a function read_board(path) that reads the board specified by the file at
-# the given path and returns it as a dictionary. Sudoku puzzles will be represented textually as 9
-# lines of 9 characters each, corresponding to the rows of the board, where a digit between "1"
-# and "9" denotes a cell containing a fixed value, and an asterisk "*" denotes a blank cell that
-# could contain any digit.
-
-    
-    
-
     def __init__(self, board):
-        #covers case where board is already a dictionary
+        # covers case where board is already a dictionary
         if isinstance(board, dict):
             self.board = board
-        #covers case where board is a list of lists
+        # covers case where board is a list of lists
         else:
             self.board = {}
             for row in range(9):
                 for col in range(9):
                     if board[row][col] == '*':
-                        self.board[(row,col)] = set(set(range(1,10)))
+                        self.board[(row, col)] = set((range(1, 10)))
                     else:
-                        self.board[(row,col)] = set(board[row][col])
-        print(self.board)
-            
+                        self.board[(row, col)] = set([int(board[row][col])])
 
-
-        
         # create a dictionary mapping each cell to a set of possible values
-        # we are going to need a couple for loops here, check to see if the value is already placed
-        # don't eliminate the value if it's already placed, create the board as is it's given. s
+        # we are going to need a couple for loops here, check to see
+        # if the value is already placed
+        # don't eliminate the value if it's already placed, create the board as
+        # is it's given. s
 
     def get_values(self, cell):
         return self.board[cell]
 
     def remove_inconsistent_values(self, cell1, cell2):
-        pass
+        removed = False
+        # if cell2 has only one value
+        if len(self.board[cell2]) == 1:
+            # get the only value in cell2
+            value = next(iter(self.board[cell2]))
+            # if that value is in cell1, remove it
+            if value in self.board[cell1]:
+                self.board[cell1].remove(value)
+                removed = True
+        return removed
 
     def infer_ac3(self):
-        pass
+        queue = collections.deque(Sudoku.ARCS)
+        # while there are still arcs in the queue
+        while queue:
+            # takes first element from the left of the queue
+            (cell1, cell2) = queue.popleft()
+            # remove inconsistent values from cell1 and cell2, which propogate
+            # constraints
+            if self.remove_inconsistent_values(cell1, cell2):
+                if len(self.board[cell1]) == 0:
+                    return False
+                # for all cells in sudoku cells
+                for cell3 in Sudoku.CELLS:
+                    # if cell3 is not cell1 or cell2 and is in the same row,
+                    # column, or box as cell1
+                    if cell3 != cell1 and cell3 != cell2 and (cell3[0]
+                                                              == cell1[0]
+                                                              or cell3[1]
+                                                              == cell1[1] or
+                                                              (
+                            cell3[0] // 3 == cell1[0] // 3 and
+                            cell3[1] // 3 == cell1[1] // 3)):
+                        queue.append((cell3, cell1))
+        return all(len(self.board[cell]) > 0
+                   for cell in Sudoku.CELLS)
 
     def infer_improved(self):
-        pass
+        # repeatedly apply the single possibility
+        # and single position strategies until no more
+        # progress can be made
+
+        while True:
+            changed = False
+            # get the whole board
+            if not self.infer_ac3():
+                return False
+            for unit in self.get_all_units():
+                # create a dictionary mapping each value to the cells that can
+                # contain it
+                counts = collections.defaultdict(list)
+                # for each value in the unit, add the cell to the list of cells
+                # that can contain it
+                for cell in unit:
+                    # now this would be like self.board[0,0]: value for example
+                    for value in self.board[cell]:
+                        # add the cell to the list of cells that can contain
+                        # the value, like for example counts[5] = [(0,0),
+                        # (0,1)]
+                        counts[value].append(cell)
+                # if a value can only be in one cell, set that cell to that
+                # value
+                for value, cells in counts.items():
+                    # if the cells has only one cell and that cell has more
+                    # than one value
+                    if len(cells) == 1 and len(self.board[cells[0]]) > 1:
+                        self.board[cells[0]] = {value}
+                        changed = True
+            if not changed:
+                break
+            if not self.infer_ac3():
+                return False
+            if all(len(self.board[cell]) == 1 for cell in Sudoku.CELLS):
+                return all(len(self.board[cell]) > 0 for cell in Sudoku.CELLS)
+
+    def get_all_units(self):
+        units = []
+        for i in range(9):
+            row = [(i, j) for j in range(9)]
+            col = [(j, i) for j in range(9)]
+            box = [(3 * (i // 3) + r, 3 * (i % 3) + c)
+                   for r in range(3) for c in range(3)]
+            units.append(row)
+            units.append(col)
+            units.append(box)
+            print(row, col, box)
+        return units
 
     def infer_with_guessing(self):
-        pass
+        # base case for recursion - if all cells have only one
+        # value, return
+        # True
+        if all(len(self.board[cell]) == 1 for cell in Sudoku.CELLS):
+            return True
+        # choose a cell with the fewest possibilities
+        cell = min(
+            (c for c in Sudoku.CELLS if len(
+                self.board[c]) > 1), key=lambda c: len(
+                self.board[c]))
+        # try each possibility for that cell
+        for value in self.board[cell]:
+            # create a copy of the baord
+            new_board = copy.deepcopy(self.board)
+            # copy the value over to the new board
+            new_board[cell] = {value}
+            # create a new Sudoku object with the new board
+            sudoku = Sudoku(new_board)
+            # if the new board is solvable, copy the solution back to the
+            # original board and return True
+            if sudoku.infer_ac3() or sudoku.infer_improved():
+                if sudoku.infer_with_guessing():
+                    self.board = sudoku.board
+                    return True
+        return False
 
 ############################################################
 # Feedback
@@ -112,26 +210,65 @@ class Sudoku(object):
 
 # Just an approximation is fine.
 feedback_question_1 = """
-Type your response here.
-Your response may span multiple lines.
-Do not include these instructions in your response.
+This assignment took me approximately 10 hours.
+I found the most challenging part to be
+implementing the AC-3 algorithm
+and ensuring that all constraints
+were correctly applied across the Sudoku grid.
+Understanding how to efficiently
+manage the propagation of constraints
+was particularly tricky.
 """
 
 feedback_question_2 = """
-Type your response here.
-Your response may span multiple lines.
-Do not include these instructions in your response.
+It would be useful if the base algorithms were provided in
+pseudocode form in
+the program spec.
+This would help clarify the steps involved and ensure
+that I am implementing
+them correctly. Additionally, more examples of
+Sudoku puzzles with varying
+levels of difficulty
+could help in understanding how different
+strategies apply to different scenarios.
 """
 
 feedback_question_3 = """
-Type your response here.
-Your response may span multiple lines.
-Do not include these instructions in your response.
+I liked the data structure choice of
+using a dictionary to represent the Sudoku board.
+It made it easy to access and update the
+possible values for each cell.
+The use of sets to represent possible
+values for each cell was also a good choice,
+as it allowed for efficient checking
+and updating of values.
 """
 
 
-b = read_board("sudoku/medium1.txt")
-print(Sudoku(b).get_values((0, 0)))
+def h(xs):
+    return {x for x in xs if xs.count(x) == 1}
+print(sorted(h([3,1,2,3,2,4])))
 
-b = read_board("sudoku/medium1.txt")
-Sudoku(b).get_values((0, 1))
+
+def Darth_Vader():
+    for i in range(9):
+        if i == 0:
+            continue
+            print("No")
+
+        if i % 2 == 0:
+            print("I")
+            continue
+            
+        if i - 1 == 2:
+            print("Am")
+            break
+            
+        if i < 2:
+            print("Your")
+            pass
+            print("Father") 
+            
+if __name__ == "__main__":
+    Darth_Vader()
+

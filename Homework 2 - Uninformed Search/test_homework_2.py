@@ -139,12 +139,11 @@ class LightsOutPuzzle(object):
         return return_puzzle
 
     def successors(self):
-        return_list = []
         for x in range(self.rows):
             for y in range(self.cols):
                 b = self.copy()
-                b.perform_move(x,y)
-                yield b
+                b.perform_move(x, y)
+                yield ((x, y), b)
 
     def find_solution(self):
         frontier = [(self.copy(), [])]
@@ -170,7 +169,7 @@ class LightsOutPuzzle(object):
 
 
 def create_puzzle(rows, cols):
-    board = np.zeros((rows,cols), dtype = bool)
+    board = list([[False for _ in range(rows)] for _ in range(cols)])
     return LightsOutPuzzle(board)
 
 def solve_identical_disks(length, n):
@@ -264,9 +263,10 @@ def solve_distinct_disks(length, n):
     
     return None
 
-p = create_puzzle(4,4)
-p.perform_move(1,1)
+p = create_puzzle(2,4)
 print(p.get_board())
+# p.perform_move(1,1)
+# print(p.get_board())
 
 p.perform_move(1,1)
 print(p.get_board())
@@ -275,6 +275,10 @@ p.scramble()
 print(p.get_board())
 print(p.successors())
 print(p.find_solution())
+
+p = create_puzzle(2, 2)
+for move, new_p in p.successors():
+    print(move, new_p.get_board())
 
 
 
