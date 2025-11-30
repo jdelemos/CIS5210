@@ -1,0 +1,80 @@
+﻿\documentclass[10pt]{article}
+
+% Zero margins
+\usepackage[paperwidth=8.5in, paperheight=11in,
+            top=0in, bottom=0in, left=0in, right=0in]{geometry}
+
+% Two-column compact layout
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\setlength{\columnsep}{0.2in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% Monospace font for code
+\usepackage{courier}
+\renewcommand{\ttdefault}{pcr}
+
+% Listings setup for pseudocode
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  keepspaces=true,
+  aboveskip=0pt,
+  belowskip=0pt
+}
+
+\begin{document}
+\begin{multicols*}{2}
+
+% ==================================================
+% Markov Decision Processes and Reinforcement Learning
+% ==================================================
+\textbf{Stochastic Policy} random probability of selecting a in state s. \textbf{Orderability} - Exactly one of $A \succ B$, $B \succ A$, or $A \sim B$. \textbf{Transitivity} - if $A \succ B$ and $B \succ C$, then $A \succ C$. \textbf{Continuity} - if $A \succ B \succ C$, then there
+exists a probability $p$ such that $B \sim pA + (1-p)C$. \textbf{Substitutability} - if $A \sim B$, then $pA + (1-p)C \sim pB + (1-p)C$. \textbf{Monotonic Preference} - preference for A over B. 
+\textbf{Monotonicity} - if $A \succ B$, then $pA + (1-p)C \succ pB + (1-p)C$ for all $0 \leq p \leq 1$. 
+\textbf{Decomposability} - if $A \sim B$ and $C \sim D$, then $pA + (1-p)C \sim pB + (1-p)D$ for all $0 \leq p \leq 1$. \textbf{Utility} The quality of being useful. \textbf{Utility Theory} every state has a quality of being useful.
+\textbf{Sequential Decision Problems} - the agents utility depends on a sequence of decisions which incorporate 
+utilities, uncertanty, sensing, and decisions. Fully observable environment. Environment is non-deterministic. Actions aren't reliable. 
+The outcome is stochastic. Transitions are \textbf{Markovian} - the next state depends only on the current state and action. \textbf{Markov Decision Process (MDP)} 
+is fully observable, stochastic, sequential decision problem. Consists of states, actions, transition model, and rewards. Methods 
+include dynamic programming, value iteration, policy iteration, and Q-learning. A solution is a \textbf{policy} - a mapping from states to actions. The goal is to find an optimal policy 
+that maximizes expected utility over time. \textbf{Utility} is a measure of the desirability of a state or sequence of states. \textbf{Discount factor} is a value between 0 and 1 that reduces the importance of future rewards.
+\textbf{Optimal Policy} is a policy that maximizes expected utility from any initial state. \textbf{Finite Horizon} after a fixed time the game is over. 
+\textbf{Infinite Horizon} the game continues indefinitely. \textbf{Non-stationary} depends on time. \textbf{optimal policy} is stationary. 
+\textbf{Proper Policy} guaranteed to reach a final state. \textbf{Best policy} argmax expected q function. \textbf{Sparse} most transition probabilities are zero. 
+\textbf{State Space} - cartesian product of all state variables. \textbf{Bellman Update} - sets U+1 based on outcome of max action bellman equation. \textbf{contraction} - two inputs produce similar results.
+\textbf{Policy Improvement} calculate a new MEU policy $\pi_{+1}$ using one-step lookahead with U. \textbf{Offline Algorithms} compute the policy before execution. 
+\textbf{Online Algorithms} compute the policy during execution. \textbf{Value Iteration} - iteratively update utilities using Bellman equation until convergence. 
+\textbf{Policy Iteration} - iteratively evaluate and improve policy until convergence. \textbf{Q-learning} - model-free reinforcement learning algorithm that learns the value of actions in states. 
+\textbf{Bandit Problems} - fixed but unknown probabilities. \textbf{Exploration and Exploitation} - trade-off between trying new actions and using known actions. \textbf{Regret} - difference between actual reward and optimal reward.
+\textbf{Bernoulli Bandit} - each action has a fixed but unknown probability of success. \textbf{Contextual Bandit} - each action's reward depends on the current context or state.
+\[
+V^{*}(s) = \max_{a} \sum_{s', s} P(s' \mid s, a)\,\bigl[R(s, a, s') + \gamma U^{*}(s')\,\bigr]
+\]
+\textbf{Model based reinforcement learning} learn the transition and reward models from experience, then use them to compute the optimal policy.\textbf{Model free reinforcement learning} learn the optimal policy directly from experience without learning. 
+\textbf{Adaptive Dynamic Programming} learn the model and use value iteration to compute the optimal policy. \textbf{Temporal Difference Learning} update the utility of the current state based on the observed reward and the estimated utility of the next state.
+\textbf{Active Learning Agent} needs to learn all transitions and choose the highest. Learn Q values for state-action pairs. \textbf{Catastrophic Forgetting} neural networks forget old information when learning new information.
+\textbf{Policy Search} search the space of policies directly without using value functions. \textbf{uncertanty} partial observability, stochastic actions, unknown environment dynamics. 
+\textbf{Laziness} impossible to plan for every eventuality. \textbf{Theoretical Ignorance} we don't know everything about the world.
+\textbf{Practical Ignorance} we can't compute everything we need to know. \textbf{Decision Theory} probability theory plus utility theory. 
+\[
+ p(a \mid b ) = \frac{p(b \mid a)\,p(a)}{p(b)}
+\] 
+\textbf{Independence} - two events A and B are independent if $P(A \mid B) = P(A)$. \textbf{Conditional Independence} - two events A and B are conditionally independent given C if $P(A \mid B, C) = P(A \mid C)$.
+\textbf{Bayes' Theorem} - a way to update probabilities based on new evidence. 
+\[
+    P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}
+\]
+\textbf{Naive Bayes Classifier} - a simple probabilistic classifier based on Bayes' theorem with strong independence assumptions. 
+\[
+P(Cause, Effect, .. Effect_{n}) = P(Cause) \prod_{i=1}^{n} P(Effect_{i} \mid Cause) 
+\]
+
+\end{multicols*}
+\end{document}
+
